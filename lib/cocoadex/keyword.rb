@@ -28,16 +28,13 @@ module Cocoadex
     def self.find text
       if scope = SCOPE_CHARS.detect {|c| text.include? c }
         class_name, term = text.split(scope)
-        logger.debug "Searching scope: #{scope}, #{class_name}, #{term}"
         find_with_scope scope, class_name, term
       else
-        logger.debug "Searching Keyword datastore (#{datastore.size}): #{text}"
         keys = datastore.select {|k| k.term.start_with? text }
-        logger.debug "#{keys.size} keys found"
         if key = keys.detect {|k| k.term == text }
           keys = [key]
-          logger.debug "Exact match!"
         end
+
         untokenize(keys)
       end
     end
@@ -86,10 +83,30 @@ module Cocoadex
       end
     end
 
+    def self.clear_tags
+      Serializer.write_text tags_path, ""
+    end
+
     # Build a tags file from existing kewords
     def self.generate_tags!
-      text = datastore.map {|k| k.term }.join('\n')
-      Serializer.write_text tags_path, text
+      logger.info "Generating tags file..."
+      text = datastore.map {|k| k.term }.join('\n') + '\n'
+
+      datastore.select {|k| k.type == :class }.each_slice(50).to_a.each do |batch|
+        untokenize(batch).each do |klass|
+          text << tagify(klass.name, (klass.properties+klass.methods.to_a),CLASS_PROP_DELIM)
+          text << tagify(klass.name, klass.class_methods,CLASS_METHOD_DELIM)
+          text << tagify(klass.name, klass.instance_methods,INST_METHOD_DELIM)
+        end
+      end
+
+      Serializer.write_text tags_path, text.strip
+    end
+
+    def self.tagify class_name, properties, delimiter
+      properties.map {|p|
+          "#{class_name}#{delimiter}#{p.name}"
+      }.join('\n') + '\n'
     end
 
     # Create Cocoadex model objects for Keyword references
