@@ -38,9 +38,19 @@ Valid search terms are Class, method, and property names. Search scope can also 
 
 ## Enabling Tab Completion
 
-Cocoadex generates a tags file of all indexed search terms during configuration. Enable tab completion for bash by linking/saving `bin/cocoadex_completion.sh` and adding the following to your .bash_profile (or similar):
+Cocoadex generates a tags file of all indexed search terms during configuration. 
+
+
+### Bash
+
+Enable tab completion for bash by linking/saving `bin/cocoadex_completion.sh` and adding the following to your .bash_profile (or similar):
 
     complete -C /path/to/cocoadex_completion.sh -o default cocoadex
+    
+### Z Shell
+
+Generate a completion file by concatenating the Cocoadex keyword tags into the `_arguments` parameter of a `compdef` file. Here is an example script to do it for you: https://gist.github.com/3164534
+
 
 ## Example Output
 
