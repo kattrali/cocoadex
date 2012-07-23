@@ -1,11 +1,10 @@
-
 module Cocoadex
   # A top level element, roughly equivalent to one
   # page of documentation
   class Entity < Element
 
     def initialize path
-      text     = clean(IO.read(path))
+      text     = clean(IO.read(path, :mode => 'rb'))
       document = Nokogiri::HTML(text)
       parse(document)
     end
