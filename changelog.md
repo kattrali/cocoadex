@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4
+
+ - Fixed parsing error on non-ASCII characters. Patch submitted by farcaller.
+ - Set width to use `$COLUMNS` environment variable, where available
+ - Added `--width` option, for manually setting the text width
+
 ## 1.3
 
  - Added `--configure` command, for finding and indexing
