@@ -13,7 +13,9 @@ logger.error_level = Logger::ERROR
 main do |query|
 
   logger.error_level = Logger::DEBUG if options[:verbose]
-
+  if options[:width] and width = options[:width].first.to_i
+    Cocoadex.width = width
+  end
   if options[:configure]
     DocSetHelper.search_and_index
   elsif options[:'load-docset']
@@ -44,6 +46,8 @@ on("--verbose","Be verbose")
 on("--configure","Index all DocSets in default locations")
 
 on("--first","Load first result when multiple matches exist")
+
+on("-w WIDTH","--width","Set the text width",/^(\d+)$/)
 
 on("-d DOCSET","--load-docset","Load a DocSet into the datastore",/^(.*)$/)
 
