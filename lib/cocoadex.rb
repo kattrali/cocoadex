@@ -19,8 +19,6 @@ require 'term/ansicolor'
 
 module Cocoadex
 
-  DEFAULT_WIDTH = 72
-
   CONFIG_DIR=File.expand_path("~/.cocoadex")
 
   # output documentation text for a given search term
@@ -41,11 +39,11 @@ module Cocoadex
 
   # The maximum line width
   def self.width
-    @width || DEFAULT_WIDTH
+    Bri.width
   end
 
   def self.width= width
-    @width = width
+    Bri.width = width
   end
 
   # path to a file in the default configuration directory
