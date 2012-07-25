@@ -56,7 +56,7 @@ module Cocoadex
 
 <% if return_value %>
 
-<%= 'Returns: ' + return_value %>
+<%= Bri::Renderer.wrap_row('Returns: ' + return_value) %>
 <% end %>
 
 <%= hrule %>
