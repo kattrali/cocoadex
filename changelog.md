@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5
+
+ - Added smart completion
+
 ## 1.4
 
  - Fixed parsing error on non-ASCII characters. Patch submitted by farcaller.

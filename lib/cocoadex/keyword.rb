@@ -76,7 +76,7 @@ module Cocoadex
     def self.tags
       @tags ||= begin
         if File.exists? tags_path
-          IO.read(tags_path).split('\n')
+          IO.read(tags_path).split("\n")
         else
           []
         end
@@ -90,7 +90,10 @@ module Cocoadex
     # Build a tags file from existing kewords
     def self.generate_tags!
       logger.info "Generating tags file..."
-      text = datastore.map {|k| k.term }.join('\n') + '\n'
+      # text = datastore.sort_by {|k| k.term }.map {|k| k.term }.join('\n')
+      # Serializer.write_text tags_path, text.strip
+
+      text = datastore.sort_by {|k| k.term }.map {|k| k.term }.join("\n") + "\n"
 
       datastore.select {|k| k.type == :class }.each_slice(50).to_a.each do |batch|
         untokenize(batch).each do |klass|
@@ -106,7 +109,7 @@ module Cocoadex
     def self.tagify class_name, properties, delimiter
       properties.map {|p|
           "#{class_name}#{delimiter}#{p.name}"
-      }.join('\n') + '\n'
+      }.join("\n") + "\n"
     end
 
     # Create Cocoadex model objects for Keyword references

@@ -27,7 +27,7 @@ Gem::Specification.new do |gem|
     changelog.md
     readme.md
     bin/cocoadex
-    bin/cocoadex_completion.sh
+    bin/cdex_completion
     lib/cocoadex.rb
     lib/cocoadex/docset_helper.rb
     lib/cocoadex/keyword.rb
@@ -41,7 +41,10 @@ Gem::Specification.new do |gem|
     lib/cocoadex/models/entity.rb
     lib/cocoadex/models/method.rb
     lib/cocoadex/models/property.rb
+    lib/cocoadex/tools/completion_helper.rb
     lib/ext/nil.rb
+    tools/bash_completion.sh
+    tools/zsh_completion.sh
   }
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
