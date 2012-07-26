@@ -1,6 +1,7 @@
 require 'cocoadex/models/docset'
 require 'cocoadex/models/element'
 require 'cocoadex/models/entity'
+require 'cocoadex/models/constant'
 require 'cocoadex/models/parameter'
 require 'cocoadex/models/result_code'
 require 'cocoadex/models/data_type'

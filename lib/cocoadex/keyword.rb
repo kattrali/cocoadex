@@ -101,12 +101,14 @@ module Cocoadex
           Cocoadex::Class.new(key.url)
         when :ref
           Cocoadex::GenericRef.new(key.url)
-        when :data_type, :result_code
+        when :data_type, :result_code, :const_group, :constant
           if class_key = datastore.detect {|k| k.id == key.fk}
             ref = Cocoadex::GenericRef.new(class_key.url)
             list = case key.type
               when :result_code then ref.result_codes
               when :data_type   then ref.data_types
+              when :const_group then ref.const_groups
+              when :constant then ref.constants
             end
             list.detect {|m| m.name == key.term}
           end
@@ -133,8 +135,10 @@ module Cocoadex
     def self.tokenize_ref docset, path, id
       ref = Cocoadex::GenericRef.new(path)
       properties = {
+        :constant    => ref.constants,
         :data_type   => ref.data_types,
-        :result_code => ref.result_codes
+        :result_code => ref.result_codes,
+        :const_group => ref.const_groups
       }
       tokenize(docset, ref, :ref, id, properties)
     end

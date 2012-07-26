@@ -35,7 +35,9 @@ Gem::Specification.new do |gem|
     lib/cocoadex/serializer.rb
     lib/cocoadex/templates.rb
     lib/cocoadex/version.rb
+    lib/cocoadex/model
     lib/cocoadex/models/class.rb
+    lib/cocoadex/models/constant.rb
     lib/cocoadex/models/data_type.rb
     lib/cocoadex/models/docset.rb
     lib/cocoadex/models/element.rb

@@ -72,14 +72,12 @@ module Cocoadex
 <% unless properties.empty? %>
 <%= section_header( "Properties:" ) %>
 <%= Bri::Renderer.wrap_list( properties.sort ) %>
-
-
 <% end %>
     EOT
 
     METHOD_DESCRIPTION =<<-EOT
 
-<%= hrule( name ) %>
+<%= hrule( type + ": " + name ) %>
 <%= print_origin( origin ) %>
 
 
@@ -112,9 +110,22 @@ module Cocoadex
 <%= availability %>
     EOT
 
+    CONSTANT_DESCRIPTION =<<-EOT
+
+<%= hrule( "Constant: " + name ) %>
+<%= print_origin( origin ) %>
+
+<%= hrule %>
+<% if description.empty? %>
+  (no description...)
+<% else %>
+<%= wrap(description) %>
+<% end %>
+    EOT
+
     PROPERTY_DESCRIPTION =<<-EOT
 
-<%= hrule( name ) %>
+<%= hrule( "Property: "+ name ) %>
 <%= print_origin( origin ) %>
 
 
@@ -123,15 +134,44 @@ module Cocoadex
 <% if abstract.empty? %>
   (no description...)
 <% else %>
-<%= Bri::Renderer.wrap_row(abstract, Cocoadex.width) %>
+<%= wrap(abstract) %>
 <% end %>
 
 <%= availability %>
     EOT
 
+    CONSTANT_GROUP_DESCRIPTION =<<-EOT
+
+<%= hrule( "Constant Group: " + name ) %>
+<%= print_origin( origin ) %>
+
+<%= wrap(declaration) %>
+<%= hrule %>
+<% if abstract.empty? %>
+  (no description...)
+<% else %>
+<%= wrap(abstract) %>
+
+<% end %>
+<% if discussion %>
+<%= section_header( "Discussion:" ) %>
+<%= wrap(discussion) %>
+<% end %>
+
+<% unless constants.empty? %>
+<%= section_header( "Constants:" ) %>
+<%= Bri::Renderer.wrap_list( constants.sort ) %>
+
+
+<% end %>
+<% if declared_in %>
+Declared in <%= declared_in %>
+<% end %>
+    EOT
+
     RESULT_CODE_DESCRIPTION =<<-EOT
 
-<%= hrule( name ) %>
+<%= hrule( "Result Code: " + name ) %>
 <%= print_origin( origin ) %>
 
 <%= inline_title("Value", value) %>
@@ -141,7 +181,7 @@ module Cocoadex
 
     DATATYPE_DESCRIPTION =<<-EOT
 
-<%= hrule( name ) %>
+<%= hrule( "Data Type: " + name ) %>
 <%= print_origin( origin ) %>
 
 

@@ -53,6 +53,7 @@ module Cocoadex
       title_nodes = doc.css("#IndexTitle")
       unless title_nodes.size == 0
         title = title_nodes.first['content']
+        logger.debug("Parsing #{path}")
 
         if class_ref? title
           logger.debug "Caching #{title}"

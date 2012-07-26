@@ -5,7 +5,8 @@ module Cocoadex
   class GenericRef < Entity
     TEMPLATE=Cocoadex::Templates::REF_DESCRIPTION
 
-    attr_reader :specs, :data_types, :overview, :result_codes
+    attr_reader :specs, :data_types, :overview,
+      :result_codes, :const_groups
 
     def parse doc
       @name  = doc.title.sub("Reference","").strip
@@ -16,6 +17,10 @@ module Cocoadex
       parse_data_types(doc)
       parse_result_codes(doc)
       parse_constants(doc)
+    end
+
+    def constants
+      @const_groups.map {|g| g.constants}.flatten
     end
 
     def parse_overview doc
@@ -46,9 +51,11 @@ module Cocoadex
     end
 
     def parse_constants doc
-      @constants = []
+      @const_groups = []
       if section = section_by_title(doc, "Constants")
-        # ...
+        section.css("h3.constantGroup").each do |type_title|
+          @const_groups << ConstantGroup.new(@name, type_title)
+        end
       end
     end
 
@@ -59,7 +66,7 @@ module Cocoadex
         table.css("tr").each do |row|
           if cells = row.css("td") and cells.size > 0
             value = cells[1].text
-            description = cells[2].text
+            description = cells[2].css("p").map {|p| p.text}.join("\n\n")
             @result_codes << ResultCode.new(@name, cells.first.text, value, description)
           end
         end
