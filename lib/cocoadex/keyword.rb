@@ -100,11 +100,14 @@ module Cocoadex
           Cocoadex::Class.new(key.url)
         when :ref
           Cocoadex::GenericRef.new(key.url)
-        when :data_type
+        when :data_type, :result_code
           if class_key = datastore.detect {|k| k.id == key.fk}
             ref = Cocoadex::GenericRef.new(class_key.url)
-            logger.debug "Searching #{key.type} list of #{ref.name}"
-            ref.data_types.detect {|m| m.name == key.term}
+            list = case key.type
+              when :result_code then ref.result_codes
+              when :data_type   then ref.data_types
+            end
+            list.detect {|m| m.name == key.term}
           end
         when :method, :property
           if class_key = datastore.detect {|k| k.id == key.fk}
@@ -120,7 +123,7 @@ module Cocoadex
     def self.tokenize_class docset, path, id
       klass = Cocoadex::Class.new(path)
       properties = {
-        :method => klass.methods,
+        :method   => klass.methods,
         :property => klass.properties
       }
       tokenize(docset, klass, :class, id, properties)
@@ -129,7 +132,8 @@ module Cocoadex
     def self.tokenize_ref docset, path, id
       ref = Cocoadex::GenericRef.new(path)
       properties = {
-        :data_type => ref.data_types
+        :data_type   => ref.data_types,
+        :result_code => ref.result_codes
       }
       tokenize(docset, ref, :ref, id, properties)
     end

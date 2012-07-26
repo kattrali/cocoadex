@@ -44,6 +44,7 @@ Gem::Specification.new do |gem|
     lib/cocoadex/models/method.rb
     lib/cocoadex/models/parameter.rb
     lib/cocoadex/models/property.rb
+    lib/cocoadex/models/result_code.rb
     lib/ext/nil.rb
   }
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

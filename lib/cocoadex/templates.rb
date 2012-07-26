@@ -14,7 +14,7 @@ module Cocoadex
 <% unless specs.empty? %>
 <%   max = specs.keys.map {|s| s.length}.max %>
 <%   specs.each do |name,value| %>
-<%=     wrap(inline_h3(name,value,max)) %>
+<%=     wrap(inline_title(name,value,max)) %>
 <%   end %>
 <% end %>
 <% unless overview.empty? %>
@@ -29,6 +29,12 @@ module Cocoadex
 <% unless data_types.empty? %>
 <%=  section_header( "Data Types:" ) %>
 <%=  Bri::Renderer.wrap_list( data_types.sort ) %>
+
+
+<% end %>
+<% unless result_codes.empty? %>
+<%=  section_header( "Result Codes:" ) %>
+<%=  Bri::Renderer.wrap_list( result_codes.sort ) %>
 <% end %>
     EOT
 
@@ -104,7 +110,6 @@ module Cocoadex
 
 <% end %>
 <%= availability %>
-
     EOT
 
     PROPERTY_DESCRIPTION =<<-EOT
@@ -122,7 +127,16 @@ module Cocoadex
 <% end %>
 
 <%= availability %>
+    EOT
 
+    RESULT_CODE_DESCRIPTION =<<-EOT
+
+<%= hrule( name ) %>
+<%= print_origin( origin ) %>
+
+<%= inline_title("Value", value) %>
+<%= hrule %>
+<%= wrap(description) %>
     EOT
 
     DATATYPE_DESCRIPTION =<<-EOT
@@ -157,7 +171,6 @@ module Cocoadex
 <%   end %>
 
 <% end %>
-
 <% unless constants.empty? %>
 <%=  section_header( "Constants:" ) %>
 <%   constants.each do |param| %>
@@ -170,12 +183,10 @@ module Cocoadex
 <%   end %>
 
 <% end %>
-
 <%= availability %>
 
 
 Declared in <%= declared_in %>
-
     EOT
   end
 end
@@ -191,7 +202,7 @@ module Bri
         Term::ANSIColor::blue + text + Term::ANSIColor::reset + "\n"
       end
 
-      def inline_h3 title, value, alignment
+      def inline_title title, value, alignment=0
         length = alignment - title.length
         buffer = length > 0 ? " "*length : ""
         Term::ANSIColor::bold + title + ": " + Term::ANSIColor::reset + "#{buffer}#{value}\n"
