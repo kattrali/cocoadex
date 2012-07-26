@@ -45,6 +45,7 @@ module Cocoadex
     # Find matches for term within a given class
     def self.find_with_scope scope, class_name, term
       if class_key = datastore.detect {|k| k.term == class_name }
+        return [] unless class_key.type == :class
         klass = untokenize([class_key]).first
         list  = case scope
           when CLASS_PROP_DELIM
