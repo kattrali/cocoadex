@@ -57,6 +57,8 @@ module Cocoadex
         if class_ref? title
           logger.debug "Caching #{title}"
           Keyword.tokenize_class docset.name, path, index
+        elsif title.include? "Reference"
+          Keyword.tokenize_ref docset.name, path, index
         end
       end
     end

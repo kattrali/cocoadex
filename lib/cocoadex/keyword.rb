@@ -98,10 +98,17 @@ module Cocoadex
         case key.type
         when :class
           Cocoadex::Class.new(key.url)
+        when :ref
+          Cocoadex::GenericRef.new(key.url)
+        when :data_type
+          if class_key = datastore.detect {|k| k.id == key.fk}
+            ref = Cocoadex::GenericRef.new(class_key.url)
+            logger.debug "Searching #{key.type} list of #{ref.name}"
+            ref.data_types.detect {|m| m.name == key.term}
+          end
         when :method, :property
           if class_key = datastore.detect {|k| k.id == key.fk}
             klass = Cocoadex::Class.new(class_key.url)
-            logger.debug "Searching #{key.type} list of #{klass.name}"
             list = key.type == :method ? klass.methods : klass.properties
             list.detect {|m| m.name == key.term}
           end
@@ -112,13 +119,29 @@ module Cocoadex
     # Find all searchable keywords in a class and add to cache
     def self.tokenize_class docset, path, id
       klass = Cocoadex::Class.new(path)
-      class_key = Keyword.new(klass.name, :class, docset, path)
-      class_key.id = id
-      datastore << class_key
+      properties = {
+        :method => klass.methods,
+        :property => klass.properties
+      }
+      tokenize(docset, klass, :class, id, properties)
+    end
 
-      {:method => klass.methods, :property => klass.properties}.each do |type,list|
+    def self.tokenize_ref docset, path, id
+      ref = Cocoadex::GenericRef.new(path)
+      properties = {
+        :data_type => ref.data_types
+      }
+      tokenize(docset, ref, :ref, id, properties)
+    end
+
+    def self.tokenize docset, entity, type, id, properties
+      key = Keyword.new(entity.name, type, docset, entity.path)
+      key.id = id
+      datastore << key
+
+      properties.each do |type, list|
         list.each do |item|
-          item_key = Keyword.new(item.name, type, docset, path)
+          item_key = Keyword.new(item.name, type, docset, entity.path)
           item_key.fk = id
           datastore << item_key
         end
