@@ -2,7 +2,8 @@
 
 ## 1.5
 
- - Added smart completion
+ - Searching for constants, functions, data types, callbacks, and result codes are now supported!
+ - Added smart completion; `Class-method`, `Class+method`, and `Class.property` can now be tab-completed
 
 ## 1.4
 

@@ -33,8 +33,13 @@ Load any DocSets in known locations:
 
     cocoadex [query]
 
-Valid search terms are Class, method, and property names. Search scope can also be focused using delimiters, such as `ClassName-method` to find instance methods, `Class+method` to find class methods, or `Class.method` to find any matching method or property in `Class`.
+#### Class Reference
 
+Valid search terms are Class, method, and property names. Search scope can also be focused using delimiters, such as `Class-method` to find instance methods, `Class+method` to find class methods, or `Class.method` to find any matching method or property in `Class`.
+
+#### Functions, Constants, Data Types, Callbacks, Structs...
+
+Valid search terms are function, constant, data type, callback and struct names, as well as constant groups (e.g. `cocoadex "Social Profile Keys"`).
 
 ## Enabling Tab Completion
 
