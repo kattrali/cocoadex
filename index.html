@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Cocoadex by kattrali</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Cocoadex</h1>
+        <h2>Command-line documentation lookup for Cocoa APIs, in the spirit of RI</h2>
+        <a href="https://github.com/kattrali/cocoadex" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>Cocoadex parses Cocoa documentation files and creates a keyword index. Queries can then be run against the index for fast documentation lookup.</p>
+
+<h2>Installation</h2>
+
+<pre><code>gem install cocoadex
+</code></pre>
+
+<h2>Update</h2>
+
+<pre><code>gem update cocoadex &amp;&amp; cocoadex --configure
+</code></pre>
+
+<h2>Configuration</h2>
+
+<p>Load any DocSets in known locations:</p>
+
+<pre><code>cocoadex --configure
+</code></pre>
+
+<h2>Usage</h2>
+
+<h3>View Options</h3>
+
+<pre><code>cocoadex --help
+</code></pre>
+
+<h3>Loading a Custom DocSet</h3>
+
+<pre><code>cocoadex --load-docset [path] --load-docset [path2] ...
+</code></pre>
+
+<h3>Look up Documentation</h3>
+
+<pre><code>cocoadex [query]
+</code></pre>
+
+<h4>Class Reference</h4>
+
+<p>Valid search terms are Class, method, and property names. Search scope can also be focused using delimiters, such as <code>Class-method</code> to find instance methods, <code>Class+method</code> to find class methods, or <code>Class.method</code> to find any matching method or property in <code>Class</code>.</p>
+
+<h4>Functions, Constants, Data Types, Callbacks, Structs...</h4>
+
+<p>Valid search terms are function, constant, data type, callback and struct names, as well as constant groups (e.g. <code>cocoadex "Social Profile Keys"</code>).</p>
+
+<h2>Enabling Tab Completion</h2>
+
+<p>Cocoadex generates a tags file of all indexed search terms during configuration.</p>
+
+<h3>Bash</h3>
+
+<p>Enable tab completion for bash by linking/saving <code>tools/bash_completion.sh</code> and adding the following to your .bash_profile (or similar):</p>
+
+<pre><code>complete -C /path/to/cocoadex_completion.sh -o default cocoadex
+</code></pre>
+
+<h3>Z Shell</h3>
+
+<p>Add the following to your <code>.zshrc</code> to enable tab completion for zsh:</p>
+
+<div class="highlight"><pre>_cocoadex<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">local </span>cocoa_prefix
+    <span class="nb">read</span> -l cocoa_prefix
+    <span class="nv">reply</span><span class="o">=(</span><span class="sb">`</span>cdex_completion <span class="s2">"$cocoa_prefix"</span><span class="sb">`</span><span class="o">)</span>
+<span class="o">}</span>
+
+compctl -K _cocoadex cocoadex
+</pre></div>
+
+<h2>Example Output</h2>
+
+<h3>Property Lookup Example</h3>
+
+<div class="highlight"><pre><span class="nv">$ </span>cocoadex tableView
+
+-------------------------------------------------------------- tableView
+                                                 <span class="o">(</span>UITableViewController<span class="o">)</span>
+
+@property<span class="o">(</span>nonatomic, retain<span class="o">)</span> UITableView *tableView
+------------------------------------------------------------------------
+Returns the table view managed by the controller object.
+
+Available in iOS 2.0 and later.
+</pre></div>
+
+<h3>Method Lookup Example</h3>
+
+<div class="highlight"><pre><span class="nv">$ </span>cocoadex tableView:viewForFoo
+
+-------------------------------------- tableView:viewForFooterInSection:
+                                                   <span class="o">(</span>UITableViewDelegate<span class="o">)</span>
+
+  - <span class="o">(</span>UIView *<span class="o">)</span>tableView:<span class="o">(</span>UITableView *<span class="o">)</span>tableView
+      viewForFooterInSection:<span class="o">(</span>NSInteger<span class="o">)</span>section
+
+Returns: A view object to be displayed in the footer of section .
+------------------------------------------------------------------------
+Asks the delegate <span class="k">for </span>a view object to display in the footer of the
+specified section of the table view.
+
+Parameters:
+
+  tableView
+    The table-view object asking <span class="k">for </span>the view object.
+  section
+    An index number identifying a section of tableView .
+
+Available in iOS 2.0 and later.
+</pre></div>
+
+<h3>Class Lookup Example (Clipped for brevity)</h3>
+
+<div class="highlight"><pre><span class="nv">$ </span>cocoadex UILabel
+
+--------------------------------------------------------- Class: UILabel
+                                       <span class="o">(</span>UIView &gt; UIResponder &gt; NSObject<span class="o">)</span>
+
+Describes a control <span class="k">for </span>displaying static text.
+------------------------------------------------------------------------
+
+Overview:
+
+   <span class="o">(</span>...<span class="o">)</span>
+
+Instance Methods:
+  drawTextInRect:, textRectForBounds:limitedToNumberOfLines:
+
+Properties:
+  adjustsFontSizeToFitWidth, baselineAdjustment, enabled, font,
+  highlighted, highlightedTextColor, lineBreakMode, minimumFontSize,
+  numberOfLines, shadowColor, shadowOffset, text, textAlignment,
+  textColor, userInteractionEnabled
+</pre></div>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/kattrali/cocoadex/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/kattrali/cocoadex/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/kattrali/cocoadex"></a> is maintained by <a href="https://github.com/kattrali">kattrali</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-33499441-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
