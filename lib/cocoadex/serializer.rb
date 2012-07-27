@@ -1,5 +1,7 @@
 
 module Cocoadex
+
+  # Move data to and from disk
   class Serializer
     SEPARATOR = "--__--"
 
@@ -13,6 +15,7 @@ module Cocoadex
       array
     end
 
+    # Ensure parent paths exist
     def self.check_path path
       unless File.exists? File.dirname(path)
         FileUtils.mkdir_p File.dirname(path)
@@ -28,7 +31,7 @@ module Cocoadex
     end
 
     # Write a cache Array as a serialized file
-    def self.write path, array, style
+    def self.write_array path, array, style
       check_path path
 
       mode = case style

@@ -24,9 +24,7 @@ main do |query|
     end.uniq
     DocSetHelper.search_and_index(paths)
   elsif query
-    if Keyword.loaded?
-      logger.debug "Loading index..."
-      Keyword.read
+    if Tokenizer.loaded?
       Cocoadex.search(query, options[:first])
     else
       puts "No DocSets loaded. Run `cocodex --configure` to search for existing DocSets."

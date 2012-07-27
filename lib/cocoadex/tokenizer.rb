@@ -40,6 +40,10 @@ module Cocoadex
       end
     end
 
+    def self.persist
+      Serializer.write_array(data_path, tokens, :overwrite)
+    end
+
     # Create a tags file containing all valid token names
     def self.generate_tags_file!
       Serializer.write_text(tags_path, tokens.map {|t|t.term}.join("\n"))

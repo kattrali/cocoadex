@@ -1,5 +1,7 @@
 
 module Cocoadex
+
+  # Helper for finding and indexing DocSets
   class DocSetHelper
 
     ROOT_PATHS = [
@@ -15,7 +17,9 @@ module Cocoadex
 
     def self.docset_paths
       @paths ||= begin
-        ROOT_PATHS.map { |path| Dir.glob(File.expand_path(path)+'/*/') }.flatten
+        ROOT_PATHS.map do |path|
+          Dir.glob(File.expand_path(path)+'/*/')
+        end.flatten
       end
     end
 
@@ -28,7 +32,7 @@ module Cocoadex
       end
 
       if docsets.size > 0
-        Keyword.write(:overwrite)
+        Tokenizer.persist
         Keyword.generate_tags!
         write(docsets)
       end
@@ -45,7 +49,7 @@ module Cocoadex
 
     def self.write docsets
       @docsets = docsets
-      Serializer.write(data_path, docsets, :overwrite)
+      Serializer.write_array(data_path, docsets, :overwrite)
     end
   end
 end

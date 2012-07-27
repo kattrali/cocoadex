@@ -1,6 +1,12 @@
 
 module Cocoadex
+
+  # DocSet index and html documentation file parser
   class Parser
+    GenericReference  = ->(title) { title.include?("Reference") }
+    DeprecatedMethods = ->(title) { title =~ /^Deprecated ([A-Za-z]+) Methods$/ }
+    ClassReference    = ->(title) {
+      title.include?("Class Reference") or title.include?("Protocol Reference") }
 
     IGNORED_DIRS = [
       'codinghowtos', 'qa',
@@ -21,30 +27,22 @@ module Cocoadex
       (File.basename(path) == 'index.html' && File.exist?(File.join(File.dirname(path),'Reference')))
     end
 
-    def self.class_ref? title
-      title.include? "Class Reference" or title.include? "Protocol Reference"
-    end
-
-    def self.deprecated? title
-      title =~ /^Deprecated ([A-Za-z]+) Methods$/
-    end
-
     def self.parse docset_path
       plist = File.join(docset_path,"Contents", "Info.plist")
       if File.exist? plist
         docset = DocSet.new(plist)
         logger.info "Parsing docset tokens in #{docset.name}. This may take a moment..."
 
-        files = Dir.glob(docset_path+"/**/*.html")
-        files.reject! {|f| ignored?(f) }
-        pbar = ProgressBar.new("#{docset.platform} #{docset.version}",files.size)
+        files = Dir.glob(docset_path+"/**/*.html").select {|f| not ignored?(f) }
+
+        pbar  = ProgressBar.new("#{docset.platform} #{docset.version}",files.size)
         files.each_with_index do |f,i|
           index_html(docset,f,i)
           pbar.inc
         end
         pbar.finish
 
-        logger.info "  Tokens Indexed: #{Keyword.datastore.size}"
+        logger.info "  Tokens Indexed: #{Tokenizer.tokens.size}"
         docset
       end
     end
@@ -53,16 +51,16 @@ module Cocoadex
       logger.debug "  Parsing path: #{path}"
 
       doc = Nokogiri::HTML(IO.read(path))
-      title_nodes = doc.css("#IndexTitle")
-      unless title_nodes.size == 0
-        title = title_nodes.first['content']
-        logger.debug("Parsing #{path}")
-
-        if class_ref? title
-          logger.debug "Caching #{title}"
-          Keyword.tokenize_class docset.name, path, index
-        elsif title.include? "Reference"
-          Keyword.tokenize_ref docset.name, path, index
+      if title = doc.css("#IndexTitle").first['content']
+        case title
+        when ClassReference
+          Tokenizer.tokenize_class(docset.name, path, index)
+        when GenericReference
+          Tokenizer.tokenize_ref(docset.name, path, index)
+        when DeprecatedMethods
+          # TODO
+        else
+          # TODO
         end
       end
     end
