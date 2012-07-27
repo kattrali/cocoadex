@@ -1,6 +1,13 @@
 
 module Cocoadex
   class SequentialNodeElement < Element
+    Abstract     = ->(node) { node.classes.include? "abstract"     }
+    Declaration  = ->(node) { node.classes.include? "declaration"  }
+    ReturnValue  = ->(node) { node.classes.include? "return_value" }
+    Discussion   = ->(node) { node.classes.include? "discussion"   }
+    Availability = ->(node) { node.classes.include? "availability" }
+    DeclaredIn   = ->(node) { node.classes.include? "declaredIn"   }
+    Special      = ->(node) { node.classes.include? "specialConsiderations" }
 
     def initialize origin, title_node
       @origin = origin
@@ -15,20 +22,20 @@ module Cocoadex
     def parse title_node
       prev_node = title_node
       while node = prev_node.next and node.name != "a"
-        classes = node.classes
-        if classes.include? "abstract"
+        case node
+        when Abstract
           @abstract = node.text
-        elsif classes.include? "declaration"
+        when Declaration
           @declaration = node.text
-        elsif classes.include? "return_value"
-          @return_value = node.text.sub("Return Value","")
-        elsif classes.include? "discussion"
-          @discussion = node.text.sub("Discussion","")
-        elsif classes.include? "availability"
+        when Availability
           @availability = node.text.sub("Availability","")
-        elsif classes.include? "declaredIn"
+        when ReturnValue
+          @return_value = node.text.sub("Return Value","")
+        when Discussion
+          @discussion = node.text.sub("Discussion","")
+        when DeclaredIn
           @declared_in = node.text.sub("Declared In","")
-        elsif classes.include? "specialConsiderations"
+        when Special
           @considerations = node.text.sub("Special Considerations","")
         else
           handle_node(node)

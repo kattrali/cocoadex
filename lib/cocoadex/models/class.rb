@@ -48,7 +48,7 @@ module Cocoadex
       @parents = doc.css("div.zSharedSpecBoxHeadList").first.css('a').map {|node| node.text}
 
       parse_properties(doc)
-      parse_tasks(doc)
+      # parse_tasks(doc)
       parse_methods(doc)
     end
 
