@@ -11,6 +11,10 @@ Cocoadex parses Cocoa documentation files and creates a keyword index. Queries c
 
     gem install cocoadex
 
+## Update
+
+    gem update cocoadex && cocoadex --configure
+
 ## Configuration
 
 Load any DocSets in known locations:
