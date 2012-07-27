@@ -2,6 +2,8 @@
 module Cocoadex
   # A Cocoa API class property
   class Property < Element
+    TEMPLATE_NAME=:property
+
     attr_reader :abstract, :declaration, :discussion,
       :availability, :parent
 

@@ -16,6 +16,9 @@ class NilClass
     []
   end
 
+  def each
+  end
+
   def next
     nil
   end

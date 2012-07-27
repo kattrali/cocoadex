@@ -49,6 +49,7 @@ Gem::Specification.new do |gem|
     lib/cocoadex/models/parameter.rb
     lib/cocoadex/models/property.rb
     lib/cocoadex/models/result_code.rb
+    lib/ext/element.rb
     lib/ext/nil.rb
     lib/ext/string.rb
     lib/ext/template_helpers.rb

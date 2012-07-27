@@ -1,11 +1,12 @@
 
 module Cocoadex
-  # A non-class reference document, containing functions,
+  # A non-class reference document containing functions,
   # constants, callbacks, result codes, and data types
   class GenericRef < Entity
     attr_reader :specs, :data_types, :overview,
       :result_codes, :const_groups, :functions,
       :callbacks
+    TEMPLATE_NAME=:generic_ref
 
     def parse doc
       @name  = doc.title.sub("Reference","").strip
@@ -16,6 +17,8 @@ module Cocoadex
       parse_data_types(doc)
       parse_result_codes(doc)
       parse_constants(doc)
+      parse_functions(doc)
+      parse_callbacks(doc)
     end
 
     def constants
@@ -40,20 +43,30 @@ module Cocoadex
       end
     end
 
+    def parse_callbacks doc
+      @callbacks = []
+      parse_section(doc, @callbacks, "Callbacks", Callback)
+    end
+
+    def parse_functions doc
+      @functions = []
+      parse_section(doc, @functions, "Functions", Function)
+    end
+
     def parse_data_types doc
       @data_types = []
-      if section = section_by_title(doc, "Data Types")
-        section.css("h3.jump").each do |dtype_title|
-          @data_types << DataType.new(@name, dtype_title)
-        end
-      end
+      parse_section(doc, @data_types, "Data Types", DataType)
     end
 
     def parse_constants doc
       @const_groups = []
-      if section = section_by_title(doc, "Constants")
-        section.css("h3.constantGroup").each do |type_title|
-          @const_groups << ConstantGroup.new(@name, type_title)
+      parse_section(doc, @const_groups, "Constants",ConstantGroup)
+    end
+
+    def parse_section doc, list, title, klass
+      if section = section_by_title(doc, title)
+        section.css("h3").each do |type_title|
+          list << klass.new(@name, type_title)
         end
       end
     end

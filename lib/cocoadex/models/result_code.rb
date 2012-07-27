@@ -1,6 +1,8 @@
 
 module Cocoadex
   class ResultCode < Element
+    TEMPLATE_NAME=:result_code
+
     attr_reader :value, :description
 
     def initialize origin, name, value, description

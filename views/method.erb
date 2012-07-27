@@ -7,14 +7,14 @@
 
 <% if return_value %>
 
-<%= Bri::Renderer.wrap_row('Returns: ' + return_value) %>
+<%= wrap('Returns: ' + return_value) %>
 <% end %>
 
 <%= hrule %>
 <% if abstract.empty? %>
   (no description...)
 <% else %>
-<%= Bri::Renderer.wrap_row(abstract, Cocoadex.width) %>
+<%= wrap(abstract) %>
 <% end %>
 
 <% unless parameters.empty? %>
@@ -23,7 +23,7 @@
 
 <%= h3(Cocoadex.indent(param.name, 2)).strip %>
 
-<% Bri::Renderer.wrap_row(param.description, Cocoadex.width).split("\n").each do |line| %>
+<% wrap(param.description).split("\n").each do |line| %>
 <%= Cocoadex.indent(line, 4) %>
 
 <% end %>

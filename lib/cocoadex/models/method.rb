@@ -2,6 +2,8 @@
 module Cocoadex
   # A model of a method in a Cocoa class
   class Method < Element
+    TEMPLATE_NAME=:method
+
     attr_reader :abstract, :declaration, :discussion,
       :declared_in, :availability, :parameters,
       :return_value, :scope, :parent
@@ -31,21 +33,7 @@ module Cocoadex
       ava_nodes = node.css(".availability > ul > li")
       @availability = ava_nodes.first.text if ava_nodes.size > 0
 
-      parse_parameters(node)
-    end
-
-    def parse_parameters node
-      if parameters = node.css(".parameters") and parameters.length > 0
-        @parameters = []
-        parameters.first.css("dt").each do |param|
-          name_nodes = param.css("em")
-          if name_nodes.size > 0
-            name = param.css("em").first.text
-            description = param.next.css("p").first.text
-            @parameters << Parameter.new(name, description)
-          end
-        end
-      end
+      parse_parameters(node.css(".parameters").first)
     end
 
     def type

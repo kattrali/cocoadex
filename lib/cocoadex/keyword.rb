@@ -101,14 +101,18 @@ module Cocoadex
           Cocoadex::Class.new(key.url)
         when :ref
           Cocoadex::GenericRef.new(key.url)
-        when :data_type, :result_code, :const_group, :constant
+        when :data_type,   :result_code, :function,
+             :const_group, :constant, :callback
+
           if class_key = datastore.detect {|k| k.id == key.fk}
             ref = Cocoadex::GenericRef.new(class_key.url)
             list = case key.type
               when :result_code then ref.result_codes
               when :data_type   then ref.data_types
               when :const_group then ref.const_groups
-              when :constant then ref.constants
+              when :constant    then ref.constants
+              when :function    then ref.functions
+              when :callback    then ref.callbacks
             end
             list.detect {|m| m.name == key.term}
           end
@@ -138,7 +142,9 @@ module Cocoadex
         :constant    => ref.constants,
         :data_type   => ref.data_types,
         :result_code => ref.result_codes,
-        :const_group => ref.const_groups
+        :const_group => ref.const_groups,
+        :function    => ref.functions,
+        :callback    => ref.callbacks
       }
       tokenize(docset, ref, :ref, id, properties)
     end
