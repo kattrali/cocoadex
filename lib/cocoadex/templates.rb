@@ -159,8 +159,12 @@ module Cocoadex
 <% end %>
 
 <% unless constants.empty? %>
-<%= section_header( "Constants:" ) %>
-<%= Bri::Renderer.wrap_list( constants.sort ) %>
+<%   max = constants.map {|c| c.name.length }.max %>
+<%=  section_header( "Constants:" ) %>
+<%   constants.each do |constant| %>
+<%=    inline_title(constant.name, constant.description, max) %>
+
+<%   end %>
 
 
 <% end %>
