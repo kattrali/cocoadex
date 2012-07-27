@@ -7,11 +7,6 @@ module Cocoadex
       Cocoadex.config_file("data/store.blob")
     end
 
-    # Tags file location
-    def self.tags_path
-      Cocoadex.config_file("tags")
-    end
-
     # All indexed searchable keys
     def self.tokens
       @store ||= loaded? ? Serializer.read(data_path) : []
@@ -44,9 +39,8 @@ module Cocoadex
       Serializer.write_array(data_path, tokens, :overwrite)
     end
 
-    # Create a tags file containing all valid token names
-    def self.generate_tags_file!
-      Serializer.write_text(tags_path, tokens.map {|t|t.term}.join("\n"))
+    def self.loaded?
+      File.exists?(data_path)
     end
 
     # Find all searchable keywords in a class and

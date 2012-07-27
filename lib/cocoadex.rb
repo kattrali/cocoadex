@@ -1,7 +1,9 @@
 
 require 'erb'
 require 'bri'
+require 'nokogiri'
 require 'cocoadex/docset_helper'
+require 'cocoadex/tokenizer'
 require 'cocoadex/serializer'
 require 'cocoadex/version'
 require 'cocoadex/model'
@@ -13,7 +15,6 @@ require 'ext/string'
 require 'ext/xml_element'
 require 'ext/template_helpers'
 require 'progressbar'
-require 'nokogiri'
 require 'term/ansicolor'
 
 module Cocoadex

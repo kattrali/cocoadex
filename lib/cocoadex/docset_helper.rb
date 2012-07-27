@@ -33,7 +33,7 @@ module Cocoadex
 
       if docsets.size > 0
         Tokenizer.persist
-        Keyword.generate_tags!
+        CompletionHelper.generate_tags!
         write(docsets)
       end
       logger.info "Done! #{docsets.size} DocSet#{docsets.size == 1 ? '':'s'} indexed."

@@ -23,8 +23,11 @@ module Cocoadex
     end
 
     # Write text to a file
-    def self.write_text path, text
+    def self.write_text path, text, style=:overwrite
       check_path path
+
+      mode = style_to_mode(style)
+
       File.open(path, 'w') do |file|
         file.print text
       end
@@ -34,18 +37,22 @@ module Cocoadex
     def self.write_array path, array, style
       check_path path
 
-      mode = case style
-        when :append then 'a'
-        when :overwrite then 'w'
-        else
-          raise "Unknown file mode: #{style}"
-      end
+      mode = style_to_mode(style)
 
       File.open(path, mode) do |file|
         array.each do |object|
           file.print(Marshal.dump(object))
           file.print SEPARATOR
         end
+      end
+    end
+
+    def self.style_to_mode style
+      case style
+        when :append then 'a'
+        when :overwrite then 'w'
+        else
+          raise "Unknown file mode: #{style}"
       end
     end
   end

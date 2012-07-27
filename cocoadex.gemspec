@@ -32,10 +32,7 @@ Gem::Specification.new do |gem|
     lib/cocoadex.rb
     lib/cocoadex/docset_helper.rb
     lib/cocoadex/keyword.rb
-    lib/cocoadex/parser.rb
-    lib/cocoadex/serializer.rb
-    lib/cocoadex/version.rb
-    lib/cocoadex/model
+    lib/cocoadex/model.rb
     lib/cocoadex/models/callback.rb
     lib/cocoadex/models/class.rb
     lib/cocoadex/models/constant.rb
@@ -51,16 +48,19 @@ Gem::Specification.new do |gem|
     lib/cocoadex/models/property.rb
     lib/cocoadex/models/result_code.rb
     lib/cocoadex/models/seq_node_element.rb
+    lib/cocoadex/parser.rb
+    lib/cocoadex/serializer.rb
+    lib/cocoadex/tokenizer.rb
+    lib/cocoadex/tools/completion_helper.rb
+    lib/cocoadex/version.rb
     lib/ext/xml_element.rb
     lib/ext/nil.rb
     lib/ext/string.rb
     lib/ext/template_helpers.rb
-    views/callback.erb
     views/class.erb
     views/constant.erb
     views/constant_group.erb
     views/data_type.erb
-    views/function.erb
     views/generic_ref.erb
     views/method.erb
     views/multiple.erb
