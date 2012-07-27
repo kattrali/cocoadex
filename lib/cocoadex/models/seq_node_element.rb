@@ -1,5 +1,7 @@
 
 module Cocoadex
+  # An element of a section where each item
+  # is divided by anchor tags
   class SequentialNodeElement < Element
     Abstract     = ->(node) { node.classes.include? "abstract"     }
     Declaration  = ->(node) { node.classes.include? "declaration"  }

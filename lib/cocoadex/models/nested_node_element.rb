@@ -1,5 +1,7 @@
 
 module Cocoadex
+  # An element of a section where each item
+  # is divided into its own div element
   class NestedNodeElement < Element
 
     def parse_properties node
