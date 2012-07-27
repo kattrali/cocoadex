@@ -1,0 +1,35 @@
+
+<%= hrule( type + ": " + name ) %>
+<%= print_origin( origin ) %>
+
+<% if description.empty? %>
+  (no description...)
+<% else %>
+<%= "\n" + description %>
+<% end %>
+<% unless overview.empty? %>
+
+<%= hrule %>
+
+<%= section_header( "Overview:" ) %>
+<%= Bri::Renderer.wrap_row(overview.join("\n\n"), Cocoadex.width) %>
+<% end %>
+
+<%= hrule %>
+
+<% unless class_methods.empty? %>
+<%= section_header( "Class methods:" ) %>
+<%= Bri::Renderer.wrap_list( class_methods.sort ) %>
+
+
+<% end %>
+<% unless instance_methods.empty? %>
+<%= section_header( "Instance methods:" ) %>
+<%= Bri::Renderer.wrap_list( instance_methods.sort ) %>
+
+
+<% end %>
+<% unless properties.empty? %>
+<%= section_header( "Properties:" ) %>
+<%= Bri::Renderer.wrap_list( properties.sort ) %>
+<% end %>

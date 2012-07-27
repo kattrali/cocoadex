@@ -33,30 +33,44 @@ Load any DocSets in known locations:
 
     cocoadex [query]
 
-Valid search terms are Class, method, and property names. Search scope can also be focused using delimiters, such as `ClassName-method` to find instance methods, `Class+method` to find class methods, or `Class.method` to find any matching method or property in `Class`.
+#### Class Reference
 
+Valid search terms are Class, method, and property names. Search scope can also be focused using delimiters, such as `Class-method` to find instance methods, `Class+method` to find class methods, or `Class.method` to find any matching method or property in `Class`.
+
+#### Functions, Constants, Data Types, Callbacks, Structs...
+
+Valid search terms are function, constant, data type, callback and struct names, as well as constant groups (e.g. `cocoadex "Social Profile Keys"`).
 
 ## Enabling Tab Completion
 
-Cocoadex generates a tags file of all indexed search terms during configuration. 
-
+Cocoadex generates a tags file of all indexed search terms during configuration.
 
 ### Bash
 
-Enable tab completion for bash by linking/saving `bin/cocoadex_completion.sh` and adding the following to your .bash_profile (or similar):
+Enable tab completion for bash by linking/saving `tools/bash_completion.sh` and adding the following to your .bash_profile (or similar):
 
     complete -C /path/to/cocoadex_completion.sh -o default cocoadex
-    
+
 ### Z Shell
 
-Generate a completion file by concatenating the Cocoadex keyword tags into the `_arguments` parameter of a `compdef` file. Here is an example script to do it for you: https://gist.github.com/3164534
+Add the following to your `.zshrc` to enable tab completion for zsh:
 
+```sh
+
+_cocoadex() {
+    local cocoa_prefix
+    read -l cocoa_prefix
+    reply=(`cdex_completion "$cocoa_prefix"`)
+}
+
+compctl -K _cocoadex cocoadex
+```
 
 ## Example Output
 
 ### Property Lookup Example
 
-<pre>
+```sh
 $ cocoadex tableView
 
 -------------------------------------------------------------- tableView
@@ -67,12 +81,12 @@ $ cocoadex tableView
 Returns the table view managed by the controller object.
 
 Available in iOS 2.0 and later.
-</pre>
+```
 
 
 ### Method Lookup Example
 
-<pre>
+```sh
 $ cocoadex tableView:viewForFoo
 
 -------------------------------------- tableView:viewForFooterInSection:
@@ -94,11 +108,11 @@ Parameters:
     An index number identifying a section of tableView .
 
 Available in iOS 2.0 and later.
-</pre>
+```
 
 ### Class Lookup Example (Clipped for brevity)
 
-<pre>
+```sh
 $ cocoadex UILabel
 
 --------------------------------------------------------- Class: UILabel
@@ -120,4 +134,4 @@ Properties:
   numberOfLines, shadowColor, shadowOffset, text, textAlignment,
   textColor, userInteractionEnabled
 
-</pre>
+```

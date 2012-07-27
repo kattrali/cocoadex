@@ -1,0 +1,28 @@
+
+<%= hrule( "Constant Group: " + name ) %>
+<%= print_origin( origin ) %>
+
+<%= wrap(declaration) %>
+<%= hrule %>
+<% if abstract.empty? %>
+  (no description...)
+<% else %>
+<%= wrap(abstract) %>
+
+<% end %>
+<% if discussion %>
+<%= section_header( "Discussion:" ) %>
+<%= wrap(discussion) %>
+<% end %>
+
+<% unless constants.empty? %>
+<%   max = constants.map {|c| c.name.length }.max %>
+<%=  section_header( "Constants:" ) %>
+<%   constants.each do |constant| %>
+<%=    inline_title(constant.name, constant.description.split("\n").first, max) %>
+
+<%   end %>
+<% end %>
+<% if declared_in %>
+Declared in <%= declared_in %>
+<% end %>

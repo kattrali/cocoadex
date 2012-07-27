@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5
+
+ - Searching for constants, functions, data types, callbacks, and result codes are now supported!
+ - Added smart completion; `Class-method`, `Class+method`, and `Class.property` can now be tab-completed
+
 ## 1.4
 
  - Fixed parsing error on non-ASCII characters. Patch submitted by farcaller.

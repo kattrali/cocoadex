@@ -1,0 +1,34 @@
+
+<%= hrule( type + ": " + name ) %>
+<%= print_origin( origin ) %>
+
+
+<%= Cocoadex.trailing_indent(Bri::Renderer.wrap_row(declaration, Cocoadex.width), 2, 6) %>
+
+<% if return_value %>
+
+<%= wrap('Returns: ' + return_value) %>
+<% end %>
+
+<%= hrule %>
+<% if abstract.empty? %>
+  (no description...)
+<% else %>
+<%= wrap(abstract) %>
+<% end %>
+
+<% unless parameters.empty? %>
+<%= section_header( "Parameters:" ) %>
+<% parameters.each do |param| %>
+
+<%= h3(Cocoadex.indent(param.name, 2)).strip %>
+
+<% wrap(param.description).split("\n").each do |line| %>
+<%= Cocoadex.indent(line, 4) %>
+
+<% end %>
+<% end %>
+
+
+<% end %>
+<%= availability %>

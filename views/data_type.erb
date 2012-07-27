@@ -1,0 +1,47 @@
+
+<%= hrule( "Data Type: " + name ) %>
+<%= print_origin( origin ) %>
+
+
+<% if declaration %>
+<%=  wrap(declaration) %>
+<% end %>
+<%= hrule %>
+<% if abstract.empty? %>
+  (no description...)
+<% else %>
+<%=  wrap(abstract) %>
+<% end %>
+
+<% if considerations %>
+<%=  wrap(considerations) %>
+<% end %>
+
+<% unless fields.empty? %>
+<%=  section_header( "Fields:" ) %>
+<%   fields.each do |param| %>
+
+<%=    h3(Cocoadex.indent(param.name, 2)).strip %>
+<%     wrap(param.description).split("\n").each do |line| %>
+<%=      Cocoadex.indent(line, 4) %>
+<%     end %>
+
+<%   end %>
+
+<% end %>
+<% unless constants.empty? %>
+<%=  section_header( "Constants:" ) %>
+<%   constants.each do |param| %>
+
+<%=    h3(Cocoadex.indent(param.name, 2)).strip %>
+<%     wrap(param.description).split("\n").each do |line| %>
+<%=      Cocoadex.indent(line, 4) %>
+<%     end %>
+
+<%   end %>
+
+<% end %>
+<%= availability %>
+
+
+Declared in <%= declared_in %>

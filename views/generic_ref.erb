@@ -1,0 +1,28 @@
+
+<%= hrule( name ) %>
+
+<% unless specs.empty? %>
+<%   max = specs.keys.map {|s| s.length}.max %>
+<%   specs.each do |name,value| %>
+<%=     wrap(inline_title(name,value,max)) %>
+<%   end %>
+<% end %>
+<% unless overview.empty? %>
+<%=  hrule %>
+
+<%=  section_header( "Overview:" ) %>
+<%=  wrap(overview) %>
+<% end %>
+
+<%= hrule %>
+
+<% unless data_types.empty? %>
+<%=  section_header( "Data Types:" ) %>
+<%=  Bri::Renderer.wrap_list( data_types.sort ) %>
+
+
+<% end %>
+<% unless result_codes.empty? %>
+<%=  section_header( "Result Codes:" ) %>
+<%=  Bri::Renderer.wrap_list( result_codes.sort ) %>
+<% end %>

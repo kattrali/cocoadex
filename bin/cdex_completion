@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+# Function to print all keyword tags by scope
+# (Helper for zsh completion)
+
+require 'cocoadex'
+
+puts Cocoadex::CompletionHelper.new(ARGV[0]).scope_matches.join("\n")

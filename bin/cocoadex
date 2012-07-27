@@ -18,15 +18,15 @@ main do |query|
   end
   if options[:configure]
     DocSetHelper.search_and_index
+  elsif options[:'generate-tags']
+    CompletionHelper.generate_tags!
   elsif options[:'load-docset']
     paths = options[:'load-docset'].map do |p|
       File.expand_path(p)
     end.uniq
     DocSetHelper.search_and_index(paths)
   elsif query
-    if Keyword.loaded?
-      logger.debug "Loading index..."
-      Keyword.read
+    if Tokenizer.loaded?
       Cocoadex.search(query, options[:first])
     else
       puts "No DocSets loaded. Run `cocodex --configure` to search for existing DocSets."
@@ -42,6 +42,8 @@ description 'A Class Reference Utility for Cocoa APIs'
 arg :query, :optional
 
 on("--verbose","Be verbose")
+
+on("--generate-tags","Generate a tags file from indexed docsets and exit")
 
 on("--configure","Index all DocSets in default locations")
 

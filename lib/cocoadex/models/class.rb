@@ -4,7 +4,7 @@ require 'set'
 module Cocoadex
   # A model of a Cocoa API class or protocol
   class Class < Entity
-    TEMPLATE=Cocoadex::Templates::CLASS_DESCRIPTION
+    TEMPLATE_NAME=:class
 
     attr_reader :description, :overview
 
@@ -48,7 +48,7 @@ module Cocoadex
       @parents = doc.css("div.zSharedSpecBoxHeadList").first.css('a').map {|node| node.text}
 
       parse_properties(doc)
-      parse_tasks(doc)
+      # parse_tasks(doc)
       parse_methods(doc)
     end
 

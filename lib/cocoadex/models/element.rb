@@ -12,7 +12,9 @@ module Cocoadex
     end
 
     def print
-      template = self.class.const_get(:TEMPLATE)
+      template_name = self.class.const_get("TEMPLATE_NAME")
+      path = Cocoadex.view_path(template_name)
+      template = IO.read(path, :mode => 'rb')
       ERB.new(template, nil, '<>').result(binding)
     end
 
@@ -26,6 +28,17 @@ module Cocoadex
 
     def type
       raise "#{self.class}#type is not defined"
+    end
+
+    def parse_parameters node
+      node.css("dt").each do |param|
+        name_nodes = param.css("em")
+        if name_nodes.size > 0
+          name = param.css("em").first.text
+          description = param.next.css("p").first.text
+          parameters << Parameter.new(name, description)
+        end
+      end
     end
   end
 end

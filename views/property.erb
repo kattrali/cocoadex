@@ -1,0 +1,14 @@
+
+<%= hrule( "Property: "+ name ) %>
+<%= print_origin( origin ) %>
+
+
+<%= Bri::Renderer.wrap_row(declaration, Cocoadex.width) %>
+<%= hrule %>
+<% if abstract.empty? %>
+  (no description...)
+<% else %>
+<%= wrap(abstract) %>
+<% end %>
+
+<%= availability %>
