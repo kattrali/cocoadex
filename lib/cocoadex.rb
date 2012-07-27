@@ -4,11 +4,12 @@ require 'bri'
 require 'cocoadex/docset_helper'
 require 'cocoadex/serializer'
 require 'cocoadex/version'
-require 'cocoadex/templates'
 require 'cocoadex/model'
 require 'cocoadex/parser'
 require 'cocoadex/keyword'
 require 'ext/nil'
+require 'ext/string'
+require 'ext/template_helpers'
 require 'nokogiri'
 require 'term/ansicolor'
 
@@ -26,7 +27,7 @@ module Cocoadex
       elsif objects.size == 1 or load_first
         puts objects.first.print
       else
-        template = Cocoadex::Templates::MULTIPLE_CHOICES
+        template = IO.read(view_path('multiple'))
         puts ERB.new(template, nil, '<>').result(binding)
       end
     end
@@ -39,6 +40,11 @@ module Cocoadex
 
   def self.width= width
     Bri.width = width
+  end
+
+  # retrieve a view template by name
+  def self.view_path name
+    File.join(File.dirname(__FILE__),'..','views',"#{name}.erb")
   end
 
   # path to a file in the default configuration directory

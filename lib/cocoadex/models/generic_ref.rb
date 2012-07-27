@@ -3,10 +3,9 @@ module Cocoadex
   # A non-class reference document, containing functions,
   # constants, callbacks, result codes, and data types
   class GenericRef < Entity
-    TEMPLATE=Cocoadex::Templates::REF_DESCRIPTION
-
     attr_reader :specs, :data_types, :overview,
-      :result_codes, :const_groups
+      :result_codes, :const_groups, :functions,
+      :callbacks
 
     def parse doc
       @name  = doc.title.sub("Reference","").strip

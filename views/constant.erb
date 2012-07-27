@@ -1,0 +1,10 @@
+
+<%= hrule( "Constant: " + name ) %>
+<%= print_origin( origin ) %>
+
+<%= hrule %>
+<% if description.empty? %>
+  (no description...)
+<% else %>
+<%= wrap(description) %>
+<% end %>

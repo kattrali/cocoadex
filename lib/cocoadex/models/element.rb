@@ -12,7 +12,9 @@ module Cocoadex
     end
 
     def print
-      template = self.class.const_get(:TEMPLATE)
+      template_name = self.class.name.split("::").last.underscore
+      path = Cocoadex.view_path(template_name)
+      template = IO.read(path, :mode => 'rb')
       ERB.new(template, nil, '<>').result(binding)
     end
 

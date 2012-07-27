@@ -2,8 +2,6 @@
 module Cocoadex
   # A model of a method in a Cocoa class
   class Method < Element
-    TEMPLATE=Cocoadex::Templates::METHOD_DESCRIPTION
-
     attr_reader :abstract, :declaration, :discussion,
       :declared_in, :availability, :parameters,
       :return_value, :scope, :parent

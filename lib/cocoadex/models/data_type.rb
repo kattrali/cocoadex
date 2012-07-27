@@ -2,8 +2,6 @@
 module Cocoadex
 
   class DataType < Element
-    TEMPLATE=Cocoadex::Templates::DATATYPE_DESCRIPTION
-
     attr_reader :abstract, :declaration, :declared_in,
       :discussion, :availability, :fields, :considerations,
       :constants

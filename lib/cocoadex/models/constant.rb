@@ -1,7 +1,6 @@
 
 module Cocoadex
   class ConstantGroup < Element
-    TEMPLATE=Cocoadex::Templates::CONSTANT_GROUP_DESCRIPTION
     attr_reader :abstract, :declaration, :constants,
       :discussion, :declared_in
 
@@ -46,7 +45,6 @@ module Cocoadex
   end
 
   class Constant < Element
-    TEMPLATE=Cocoadex::Templates::CONSTANT_DESCRIPTION
 
     attr_reader :description
 

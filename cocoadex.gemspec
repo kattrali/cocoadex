@@ -33,21 +33,35 @@ Gem::Specification.new do |gem|
     lib/cocoadex/keyword.rb
     lib/cocoadex/parser.rb
     lib/cocoadex/serializer.rb
-    lib/cocoadex/templates.rb
     lib/cocoadex/version.rb
     lib/cocoadex/model
+    lib/cocoadex/models/callback.rb
     lib/cocoadex/models/class.rb
     lib/cocoadex/models/constant.rb
     lib/cocoadex/models/data_type.rb
     lib/cocoadex/models/docset.rb
     lib/cocoadex/models/element.rb
     lib/cocoadex/models/entity.rb
+    lib/cocoadex/models/function.rb
     lib/cocoadex/models/generic_ref.rb
     lib/cocoadex/models/method.rb
     lib/cocoadex/models/parameter.rb
     lib/cocoadex/models/property.rb
     lib/cocoadex/models/result_code.rb
     lib/ext/nil.rb
+    lib/ext/string.rb
+    lib/ext/template_helpers.rb
+    views/callback.erb
+    views/class.erb
+    views/constant.erb
+    views/constant_group.erb
+    views/data_type.erb
+    views/function.erb
+    views/generic_ref.erb
+    views/method.erb
+    views/multiple.erb
+    views/property.erb
+    views/result_code.erb
   }
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
