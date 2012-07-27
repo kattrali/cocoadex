@@ -38,15 +38,34 @@ Valid search terms are Class, method, and property names. Search scope can also 
 
 ## Enabling Tab Completion
 
-Cocoadex generates a tags file of all indexed search terms during configuration. Enable tab completion for bash by linking/saving `bin/cocoadex_completion.sh` and adding the following to your .bash_profile (or similar):
+Cocoadex generates a tags file of all indexed search terms during configuration.
+
+### Bash
+
+Enable tab completion for bash by linking/saving `tools/bash_completion.sh` and adding the following to your .bash_profile (or similar):
 
     complete -C /path/to/cocoadex_completion.sh -o default cocoadex
+
+### Z Shell
+
+Add the following to your `.zshrc` to enable tab completion for zsh:
+
+```sh
+
+_cocoadex() {
+    local cocoa_prefix
+    read -l cocoa_prefix
+    reply=(`cdex_completion "$cocoa_prefix"`)
+}
+
+compctl -K _cocoadex cocoadex
+```
 
 ## Example Output
 
 ### Property Lookup Example
 
-<pre>
+```sh
 $ cocoadex tableView
 
 -------------------------------------------------------------- tableView
@@ -57,12 +76,12 @@ $ cocoadex tableView
 Returns the table view managed by the controller object.
 
 Available in iOS 2.0 and later.
-</pre>
+```
 
 
 ### Method Lookup Example
 
-<pre>
+```sh
 $ cocoadex tableView:viewForFoo
 
 -------------------------------------- tableView:viewForFooterInSection:
@@ -84,11 +103,11 @@ Parameters:
     An index number identifying a section of tableView .
 
 Available in iOS 2.0 and later.
-</pre>
+```
 
 ### Class Lookup Example (Clipped for brevity)
 
-<pre>
+```sh
 $ cocoadex UILabel
 
 --------------------------------------------------------- Class: UILabel
@@ -110,4 +129,4 @@ Properties:
   numberOfLines, shadowColor, shadowOffset, text, textAlignment,
   textColor, userInteractionEnabled
 
-</pre>
+```
