@@ -4,6 +4,8 @@ module Cocoadex
   class DataType < SequentialNodeElement
     TEMPLATE_NAME=:data_type
 
+    class Field < Parameter;end
+
     attr_reader :abstract, :declaration, :declared_in,
       :discussion, :availability, :considerations
     attr_accessor :next_termdef
@@ -28,7 +30,7 @@ module Cocoadex
           node.css("dt").each do |field_title_node|
             field_name  = field_title_node.css("code").text
             description = field_title_node.next.text
-            list << Parameter.new(field_name, description)
+            list << Field.new(field_name, description)
           end
           next_termdef = ""
         end

@@ -31,6 +31,7 @@ Gem::Specification.new do |gem|
     bin/cdex_completion
     lib/cocoadex.rb
     lib/cocoadex/docset_helper.rb
+    lib/cocoadex/extensions.rb
     lib/cocoadex/keyword.rb
     lib/cocoadex/model.rb
     lib/cocoadex/models/callback.rb
