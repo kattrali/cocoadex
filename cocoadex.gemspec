@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('rake','~> 0.9.2')
   gem.add_dependency('methadone', '~>1.2.1')
   gem.add_dependency('term-ansicolor')
+  gem.add_dependency('ruby-progressbar')
   # gem.add_dependency('sqlite3')
   gem.add_dependency('bri')
   gem.add_dependency('nokogiri')

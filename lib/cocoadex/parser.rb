@@ -37,9 +37,12 @@ module Cocoadex
 
         files = Dir.glob(docset_path+"/**/*.html")
         files.reject! {|f| ignored?(f) }
+        pbar = ProgressBar.new("#{docset.platform} #{docset.version}",files.size)
         files.each_with_index do |f,i|
           index_html(docset,f,i)
+          pbar.inc
         end
+        pbar.finish
 
         logger.info "  Tokens Indexed: #{Keyword.datastore.size}"
         docset
