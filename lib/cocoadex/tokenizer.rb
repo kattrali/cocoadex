@@ -17,6 +17,10 @@ module Cocoadex
       subset_match(tokens, text)
     end
 
+    def self.find_by_id id
+      tokens.detect {|t| t.id == id }
+    end
+
     # Find all tokens in a subset with a term identical
     # to a string
     def self.subset_match subset, text
@@ -80,30 +84,37 @@ module Cocoadex
           Cocoadex::GenericRef.new(key.url)
         when :data_type,   :result_code, :function,
              :const_group, :constant, :callback
-
-          if class_key = tokens.detect {|k| k.id == key.fk}
-            ref = Cocoadex::GenericRef.new(class_key.url)
-            list = case key.type
-              when :result_code then ref.result_codes
-              when :data_type   then ref.data_types
-              when :const_group then ref.const_groups
-              when :constant    then ref.constants
-              when :function    then ref.functions
-              when :callback    then ref.callbacks
-            end
-            list.detect {|m| m.name == key.term}
-          end
+          untokenize_ref_property(key)
         when :method, :property
-          if class_key = tokens.detect {|k| k.id == key.fk}
-            klass = Cocoadex::Class.new(class_key.url)
-            list = key.type == :method ? klass.methods : klass.properties
-            list.detect {|m| m.name == key.term}
-          end
+          untokenize_class_property(key)
         end
       end
     end
 
     private
+
+    def self.untokenize_class_property key
+      if class_key = find_by_id(key.fk)
+        klass = Cocoadex::Class.new(class_key.url)
+        list  = key.type == :method ? klass.methods : klass.properties
+        list.detect {|m| m.name == key.term}
+      end
+    end
+
+    def self.untokenize_ref_property key
+      if ref_key = find_by_id(key.fk)
+        ref  = Cocoadex::GenericRef.new(ref_key.url)
+        list = case key.type
+          when :result_code then ref.result_codes
+          when :data_type   then ref.data_types
+          when :const_group then ref.const_groups
+          when :constant    then ref.constants
+          when :function    then ref.functions
+          when :callback    then ref.callbacks
+        end
+        list.detect {|m| m.name == key.term}
+      end
+    end
 
     # Convert all elements into keyword tokens
     def self.tokenize docset, entity, type, id, properties

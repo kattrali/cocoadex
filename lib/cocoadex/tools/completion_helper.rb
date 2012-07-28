@@ -52,21 +52,10 @@ module Cocoadex
       text = datastore.map {|k| k.term }.join("\n") + "\n"
 
       # Parse class elements and store tags for scope delimiters
-      datastore.select {|k| k.type == :class }.each_slice(50).to_a.each do |batch|
+      classes = datastore.select {|k| k.type == :class }
+      classes.each_slice(50).to_a.each do |batch|
         Tokenizer.untokenize(batch).each do |klass|
-          logger.debug("Tagging #{klass.name} properties")
-          text << tagify(
-            klass.name,
-            (klass.properties+klass.methods.to_a),
-            Keyword::CLASS_PROP_DELIM)
-          text << tagify(
-            klass.name,
-            klass.class_methods,
-            Keyword::CLASS_METHOD_DELIM)
-          text << tagify(
-            klass.name,
-            klass.instance_methods,
-            Keyword::INST_METHOD_DELIM)
+          text << tag_class_properties(klass)
         end
       end
 
@@ -74,6 +63,22 @@ module Cocoadex
     end
 
     private
+
+    def self.tag_class_properties klass
+      text = tagify(
+        klass.name,
+        (klass.properties+klass.methods.to_a),
+        Keyword::CLASS_PROP_DELIM)
+      text << tagify(
+        klass.name,
+        klass.class_methods,
+        Keyword::CLASS_METHOD_DELIM)
+      text << tagify(
+        klass.name,
+        klass.instance_methods,
+        Keyword::INST_METHOD_DELIM)
+      text
+    end
 
     def self.tagify class_name, properties, delimiter
       properties.map {|p|
