@@ -14,43 +14,41 @@ require 'cocoadex/models/method'
 require 'cocoadex/models/property'
 require 'cocoadex/models/class'
 
-# Class Structure -------------
-#
-# DocSet
-# Element
-#   Entity
-#     Class
-#     GenericRef
-#   NestedNodeElement
-#     Method
-#     Property
-#   SequentialNodeElement
-#     Callback
-#     ConstantGroup
-#     DataType
-#     Function
-#   Constant
-#   Parameter
-#   ResultCode
-#
-# Relationship Tree -----------
-#   Class
-#     Method
-#       Parameter
-#     Property
-#
-#   GenericRef
-#     Callback
-#       Parameter
-#     ConstantGroup
-#       Constant
-#     DataType
-#       Parameter
-#     Function
-#       Parameter
-#
-#
 module Cocoadex
+  # Class Structure -------------
+  #
+  # DocSet
+  # Element
+  #   Entity
+  #     Class
+  #     GenericRef
+  #   NestedNodeElement
+  #     Method
+  #     Property
+  #   SequentialNodeElement
+  #     Callback
+  #     ConstantGroup
+  #     DataType
+  #     Function
+  #   Constant
+  #   Parameter
+  #   ResultCode
+  #
+  # Relationship Tree -----------
+  #   Class
+  #     Method
+  #       Parameter
+  #     Property
+  #
+  #   GenericRef
+  #     Callback
+  #       Parameter
+  #     ConstantGroup
+  #       Constant
+  #     DataType
+  #       Parameter
+  #     Function
+  #       Parameter
   class Model
   end
 end
