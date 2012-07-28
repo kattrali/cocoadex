@@ -33,7 +33,7 @@ module Cocoadex
         docset = DocSet.new(plist)
         logger.info "Parsing docset tokens in #{docset.name}. This may take a moment..."
 
-        files = Dir.glob(docset_path+"/**/*.html").select {|f| not ignored?(f) }
+        files = get_files(docset_path)
 
         pbar  = ProgressBar.new("#{docset.platform} #{docset.version}",files.size)
         files.each_with_index do |f,i|
@@ -45,6 +45,10 @@ module Cocoadex
         logger.info "  Tokens Indexed: #{Tokenizer.tokens.size}"
         docset
       end
+    end
+
+    def self.get_file docset_path
+      Dir.glob(docset_path+"/**/*.html").select {|f| not ignored?(f) }
     end
 
     def self.index_html docset, path, index
