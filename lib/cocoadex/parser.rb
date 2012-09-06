@@ -35,12 +35,14 @@ module Cocoadex
 
         files = Dir.glob(docset_path+"/**/*.html").select {|f| not ignored?(f) }
 
-        pbar  = ProgressBar.new("#{docset.platform} #{docset.version}",files.size)
-        files.each_with_index do |f,i|
-          index_html(docset,f,i)
-          pbar.inc
+        if files.size > 0
+          pbar  = ProgressBar.create(:title => "#{docset.platform} #{docset.version}",:total => files.size)
+          files.each_with_index do |f,i|
+            index_html(docset,f,i)
+            pbar.increment
+          end
+          pbar.finish
         end
-        pbar.finish
 
         logger.info "  Tokens Indexed: #{Tokenizer.tokens.size}"
         docset

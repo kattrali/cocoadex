@@ -10,8 +10,8 @@ require 'cocoadex/model'
 require 'cocoadex/parser'
 require 'cocoadex/keyword'
 require 'cocoadex/tools/completion_helper'
-require 'extensions'
-require 'progressbar'
+require 'cocoadex/extensions'
+require 'ruby-progressbar'
 require 'term/ansicolor'
 
 module Cocoadex
