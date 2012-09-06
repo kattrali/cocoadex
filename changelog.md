@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6
+
+ - Fix missing method errors when parsing OS X 10.8 documentation
+ - Fix deprecation warnings from `ruby-progressbar`
+
 ## 1.5
 
  - Searching for constants, functions, data types, callbacks, and result codes are now supported!
