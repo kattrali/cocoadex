@@ -8,6 +8,10 @@ class NilClass
     ""
   end
 
+  def first
+    nil
+  end
+
   def css selector
     nil
   end
