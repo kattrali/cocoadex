@@ -25,7 +25,7 @@ module Cocoadex
 
     def self.search_and_index paths=docset_paths
       docsets = []
-      paths.map do |path|
+      paths.each do |path|
         if docset = Parser.parse(path)
           docsets << docset
         end

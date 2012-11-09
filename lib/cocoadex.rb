@@ -2,6 +2,7 @@
 require 'erb'
 require 'bri'
 require 'nokogiri'
+require 'cocoadex/database'
 require 'cocoadex/docset_helper'
 require 'cocoadex/tokenizer'
 require 'cocoadex/serializer'

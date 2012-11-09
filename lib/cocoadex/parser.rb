@@ -27,6 +27,10 @@ module Cocoadex
       (File.basename(path) == 'index.html' && File.exist?(File.join(File.dirname(path),'Reference')))
     end
 
+    def self.file_index
+      @index ||= 0
+    end
+
     def self.parse docset_path
       plist = File.join(docset_path,"Contents", "Info.plist")
       if File.exist? plist
@@ -38,9 +42,10 @@ module Cocoadex
         if files.size > 0
           pbar  = ProgressBar.create(:title => "#{docset.platform} #{docset.version}",:total => files.size)
           files.each_with_index do |f,i|
-            index_html(docset,f,i)
+            index_html(docset,f,i+file_index)
             pbar.increment
           end
+          @index = files.count + 1
           pbar.finish
         end
 

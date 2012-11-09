@@ -36,7 +36,8 @@ module Cocoadex
     end
 
     def self.persist
-      Serializer.write_array(data_path, tokens, :overwrite)
+      Cocoadex::Database.persist_keywords tokens
+      # Serializer.write_array(data_path, tokens.sort_by {|t| t.term }, :overwrite)
     end
 
     def self.loaded?
