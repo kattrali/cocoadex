@@ -4,7 +4,7 @@ Documentation lookup for Cocoa APIs, in the spirit of RI
 
 Cocoadex parses Cocoa documentation files and creates a keyword index. Queries can then be run against the index for fast documentation lookup.
 
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/kattrali/cocoadex)
+[![Code Climate](https://codeclimate.com/github/kattrali/cocoadex.png)](https://codeclimate.com/github/kattrali/cocoadex)
 
 
 ## Installation
