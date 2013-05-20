@@ -52,7 +52,7 @@ module Cocoadex
       text = datastore.map {|k| k.term }.join("\n") + "\n"
 
       # Parse class elements and store tags for scope delimiters
-      datastore.select {|k| k.type == :class }.each_slice(50).to_a.each do |batch|
+      KeywordStore.find_by_type(:class).each_slice(50).to_a.each do |batch|
         Tokenizer.untokenize(batch).each do |klass|
           logger.debug("Tagging #{klass.name} properties")
           text << tagify(

@@ -49,7 +49,7 @@ module Cocoadex
           pbar.finish
         end
 
-        logger.info "  Tokens Indexed: #{Tokenizer.tokens.size}"
+        logger.info "  Tokens Indexed: #{KeywordStore.count}"
         docset
       end
     end

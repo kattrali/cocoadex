@@ -25,7 +25,7 @@ module Cocoadex
     # Search the cache for matching text
     def self.find text
       logger.debug "Searching tokens for #{text}"
-      Cocoadex::Database.find_keywords text
+      Cocoadex::KeywordStore.find_keywords text
     end
 
     def self.get_scope text
@@ -50,27 +50,6 @@ module Cocoadex
 
     def to_s
       "#{type} => #{term}"
-    end
-
-    private
-
-    # Find matches for term within a given class
-    def self.find_with_scope scope, class_name, term
-      if class_key = Tokenizer.match(class_name)
-        return [] unless class_key.type == :class
-        klass = class_key.to_element
-        list  = case scope
-          when CLASS_PROP_DELIM
-            klass.methods + klass.properties
-          when CLASS_METHOD_DELIM
-            klass.class_methods
-          when INST_METHOD_DELIM
-            klass.instance_methods
-        end
-        list.select {|m| m.name.start_with? term}
-      else
-        []
-      end
     end
   end
 end

@@ -12,32 +12,8 @@ module Cocoadex
       @store ||= loaded? ? Serializer.read(data_path) : []
     end
 
-    # Find all tokens with a term identical to a string
-    def self.match text
-      subset_match(tokens, text)
-    end
-
-    # Find all tokens in a subset with a term identical
-    # to a string
-    def self.subset_match subset, text
-      subset.detect {|t| t.term == text }
-    end
-
-    # Find all tokens with a term at least starting with
-    # a text string. If there is an exact match, return
-    # it instead of the entire list
-    def self.fuzzy_match text
-      subset = tokens.select {|t| t.term.start_with? text }
-      if token = subset_match(subset, text)
-        [token]
-      else
-        subset
-      end
-    end
-
     def self.persist
-      Cocoadex::Database.persist_keywords tokens
-      # Serializer.write_array(data_path, tokens.sort_by {|t| t.term }, :overwrite)
+      Cocoadex::KeywordStore.persist_keywords tokens
     end
 
     def self.loaded?
@@ -82,7 +58,7 @@ module Cocoadex
         when :data_type,   :result_code, :function,
              :const_group, :constant, :callback
 
-          if class_key = tokens.detect {|k| k.id == key.fk}
+          if class_key = KeywordStore.find_by_id(key.fk)
             ref = Cocoadex::GenericRef.new(class_key.url)
             list = case key.type
               when :result_code then ref.result_codes
@@ -95,7 +71,7 @@ module Cocoadex
             list.detect {|m| m.name == key.term}
           end
         when :method, :property
-          if class_key = tokens.detect {|k| k.id == key.fk}
+          if class_key = KeywordStore.find_by_id(key.fk)
             klass = Cocoadex::Class.new(class_key.url)
             list = key.type == :method ? klass.methods : klass.properties
             list.detect {|m| m.name == key.term}
