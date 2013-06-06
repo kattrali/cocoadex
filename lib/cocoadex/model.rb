@@ -13,6 +13,7 @@ require 'cocoadex/models/generic_ref'
 require 'cocoadex/models/method'
 require 'cocoadex/models/property'
 require 'cocoadex/models/class'
+require 'cocoadex/models/category'
 
 # Class Structure -------------
 #
@@ -35,6 +36,11 @@ require 'cocoadex/models/class'
 #
 # Relationship Tree -----------
 #   Class
+#     Method
+#       Parameter
+#     Property
+#
+#   Category
 #     Method
 #       Parameter
 #     Property

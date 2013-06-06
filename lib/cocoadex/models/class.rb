@@ -42,10 +42,12 @@ module Cocoadex
 
     def parse doc
       @name = doc.css('body a').first['title']
+      logger.debug("    Parsing #{@name}")
       @description = doc.css('meta#description').first['content']
       # @overview = doc.css(".zClassDescription p.abstract").first.text
       @overview = doc.css(".zClassDescription").first.children.map {|n| n.text.sub("Overview","") }
-      @parents = doc.css("div.zSharedSpecBoxHeadList").first.css('a').map {|node| node.text}
+      specs = doc.css("div.zSharedSpecBoxHeadList").first.css('a')
+      @parents = specs.map {|node| node.text} if specs
 
       parse_properties(doc)
       # parse_tasks(doc)

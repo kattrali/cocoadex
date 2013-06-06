@@ -7,6 +7,7 @@ module Cocoadex
     DeprecatedMethods = ->(title) { title =~ /^Deprecated ([A-Za-z]+) Methods$/ }
     ClassReference    = ->(title) {
       title.include?("Class Reference") or title.include?("Protocol Reference") }
+    CategoryReference = ->(title) { title.include?("Category Reference") }
 
     IGNORED_DIRS = [
       'codinghowtos', 'qa',
@@ -27,7 +28,7 @@ module Cocoadex
       (File.basename(path) == 'index.html' && File.exist?(File.join(File.dirname(path),'Reference')))
     end
 
-    def self.parse docset_path
+    def self.parse docset_path, tokenizer=Tokenizer
       plist = File.join(docset_path,"Contents", "Info.plist")
       if File.exist? plist
         docset = DocSet.new(plist)
@@ -38,27 +39,34 @@ module Cocoadex
         if files.size > 0
           pbar  = ProgressBar.create(:title => "#{docset.platform} #{docset.version}",:total => files.size)
           files.each_with_index do |f,i|
-            index_html(docset,f,i)
+            index_html(docset, f, i, tokenizer)
             pbar.increment
           end
           pbar.finish
+          logger.info "  Tokens Indexed."
+        else
+          logger.info "  No files to parse."
         end
 
-        logger.info "  Tokens Indexed: #{Tokenizer.tokens.size}"
         docset
       end
     end
 
-    def self.index_html docset, path, index
+    def self.index_html docset, path, index, tokenizer
       logger.debug "  Parsing path: #{path}"
 
       doc = Nokogiri::HTML(IO.read(path))
-      if title = doc.css("#IndexTitle").first['content']
+      if title = doc.css("#IndexTitle").first['content'] || doc.css("#contents a").first['title']
         case title
         when ClassReference
-          Tokenizer.tokenize_class(docset.name, path, index)
+          logger.debug "  Parsing CLASS"
+          tokenizer.tokenize_class(docset.name, path, index)
+        when CategoryReference
+          logger.debug "  Parsing CATEGORY"
+          tokenizer.tokenize_category(docset.name, path, index)
         when GenericReference
-          Tokenizer.tokenize_ref(docset.name, path, index)
+          logger.debug "  Parsing GENERIC"
+          tokenizer.tokenize_ref(docset.name, path, index)
         when DeprecatedMethods
           # TODO
         else

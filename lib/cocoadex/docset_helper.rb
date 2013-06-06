@@ -39,6 +39,13 @@ module Cocoadex
       logger.info "Done! #{docsets.size} DocSet#{docsets.size == 1 ? '':'s'} indexed."
     end
 
+    def self.show_schema docset_path, output_path
+      if docset = Parser.parse(docset_path, DiffTokenizer)
+        DiffSerializer.write_array(output_path, DiffTokenizer.tokens, :overwrite)
+        puts File.read(output_path)
+      end
+    end
+
     def indexed_docsets
       @docsets ||= Serializer.read(data_path)
     end

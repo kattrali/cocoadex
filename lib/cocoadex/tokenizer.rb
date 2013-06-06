@@ -54,6 +54,17 @@ module Cocoadex
       tokenize(docset, klass, :class, id, properties)
     end
 
+    # Find all searchable keywords in a class and
+    # add to cache
+    def self.tokenize_category docset, path, id
+      klass = Cocoadex::Category.new(path)
+      properties = {
+        :method   => klass.methods,
+        :property => klass.properties
+      }
+      tokenize(docset, klass, :category, id, properties)
+    end
+
     # Find all searchable keywords in a reference
     # and add to cache
     def self.tokenize_ref docset, path, id

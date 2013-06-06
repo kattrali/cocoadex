@@ -21,7 +21,7 @@ module Cocoadex
 
       File.open(path, mode) do |file|
         array.each do |keyword|
-          file.print("#{keyword.type} #{keyword.term}")
+          file.puts("#{keyword.type} #{keyword.term}")
         end
       end
     end
