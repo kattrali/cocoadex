@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSArray+ObjectiveSugar.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSArray(ObjectiveSugar)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/first</TokenIdentifier>
+			<Abstract type="html">The first item in the array, or nil.</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (id)first</Declaration>
+			
+			<ReturnValue><Abstract type="html">The first item in the array, or nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/first</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/last</TokenIdentifier>
+			<Abstract type="html">The last item in the array, or nil.</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (id)last</Declaration>
+			
+			<ReturnValue><Abstract type="html">The last item in the array, or nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/last</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/each:</TokenIdentifier>
+			<Abstract type="html">A simpler alias for enumerateObjectsUsingBlock</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (void)each:(void ( ^ ) ( id object ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>A</Name>
+					<Abstract type="html">block with the object in its arguments.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/each:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/eachWithIndex:</TokenIdentifier>
+			<Abstract type="html">A simpler alias for enumerateObjectsUsingBlock which also passes in an index</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (void)eachWithIndex:(void ( ^ ) ( id object , int index ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>A</Name>
+					<Abstract type="html">block with the object in its arguments.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/eachWithIndex:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/includes:</TokenIdentifier>
+			<Abstract type="html">An alias for containsObject</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)includes:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>An</Name>
+					<Abstract type="html">object that the array may or may not contain.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/includes:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/take:</TokenIdentifier>
+			<Abstract type="html">Take the first numberOfElements out of the array, or the maximum amount of
+elements if it is less.</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)take:(NSUInteger)numberOfElements</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>Number</Name>
+					<Abstract type="html">of elements to take from array</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An array of elements</Abstract></ReturnValue>
+			<Anchor>//api/name/take:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/takeWhile:</TokenIdentifier>
+			<Abstract type="html">Passes elements to the block until the block returns NO,
+then stops iterating and returns an array of all prior elements.</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)takeWhile:(BOOL ( ^ ) ( id object ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>A</Name>
+					<Abstract type="html">block that returns YES/NO</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An array of elements</Abstract></ReturnValue>
+			<Anchor>//api/name/takeWhile:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/map:</TokenIdentifier>
+			<Abstract type="html">Iterate through the current array running the block on each object and
+returning an array of the changed objects.</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)map:(id ( ^ ) ( id object ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>A</Name>
+					<Abstract type="html">block that passes in each object and returns a modified object</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An array of modified elements</Abstract></ReturnValue>
+			<Anchor>//api/name/map:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/select:</TokenIdentifier>
+			<Abstract type="html">Iterate through current array asking whether to keep each element.</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)select:(BOOL ( ^ ) ( id object ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>A</Name>
+					<Abstract type="html">block that returns YES/NO for whether the object should stay</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An array of elements selected</Abstract></ReturnValue>
+			<Anchor>//api/name/select:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/reject:</TokenIdentifier>
+			<Abstract type="html">Iterate through current array asking whether to remove each element.</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)reject:(BOOL ( ^ ) ( id object ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>A</Name>
+					<Abstract type="html">block that returns YES/NO for whether the object should be removed</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An array of elements not rejected</Abstract></ReturnValue>
+			<Anchor>//api/name/reject:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/flatten</TokenIdentifier>
+			<Abstract type="html">Recurse through self checking for NSArrays and extract all elements into one single array</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)flatten</Declaration>
+			
+			<ReturnValue><Abstract type="html">An array of all held arrays merged</Abstract></ReturnValue>
+			<Anchor>//api/name/flatten</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/join</TokenIdentifier>
+			<Abstract type="html">Alias for componentsJoinedByString with a default of no seperator</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)join</Declaration>
+			
+			<ReturnValue><Abstract type="html">A string of all objects joined with an empty string</Abstract></ReturnValue>
+			<Anchor>//api/name/join</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/join:</TokenIdentifier>
+			<Abstract type="html">Alias for componentsJoinedByString</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)join:(NSString *)separator</Declaration>
+			
+			<ReturnValue><Abstract type="html">A string of all objects joined with the seperator string</Abstract></ReturnValue>
+			<Anchor>//api/name/join:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/sort</TokenIdentifier>
+			<Abstract type="html">Run the default comparator on each object in the array</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)sort</Declaration>
+			
+			<ReturnValue><Abstract type="html">A sorted copy of the array</Abstract></ReturnValue>
+			<Anchor>//api/name/sort</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/intersectionWithArray:</TokenIdentifier>
+			<Abstract type="html">Return all the objects that are in both self and array.
+Alias for Ruby&apos;s &amp;amp; operator</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)intersectionWithArray:(NSArray *)array</Declaration>
+			
+			<ReturnValue><Abstract type="html">An array of objects common to both arrays</Abstract></ReturnValue>
+			<Anchor>//api/name/intersectionWithArray:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/unionWithArray:</TokenIdentifier>
+			<Abstract type="html">Return all the objects that in both self and array combined.
+Alias for Ruby&apos;s | operator</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)unionWithArray:(NSArray *)array</Declaration>
+			
+			<ReturnValue><Abstract type="html">An array of the two arrays combined</Abstract></ReturnValue>
+			<Anchor>//api/name/unionWithArray:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/relativeComplement:</TokenIdentifier>
+			<Abstract type="html">Return all the objects in self that are not in array.
+Alias for Ruby&apos;s - operator</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)relativeComplement:(NSArray *)array</Declaration>
+			
+			<ReturnValue><Abstract type="html">An array of the self without objects in array</Abstract></ReturnValue>
+			<Anchor>//api/name/relativeComplement:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSArray(ObjectiveSugar)/symmetricDifference:</TokenIdentifier>
+			<Abstract type="html">Return all the objects that are unique to each array individually
+Alias for Ruby&apos;s ^ operator. Equivalent of a - b | b - a</Abstract>
+			<DeclaredIn>NSArray+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)symmetricDifference:(NSArray *)array</Declaration>
+			
+			<ReturnValue><Abstract type="html">An array of elements which are in either of the arrays and not in their intersection.</Abstract></ReturnValue>
+			<Anchor>//api/name/symmetricDifference:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

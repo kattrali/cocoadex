@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSNumber+ObjectiveSugar.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSNumber(ObjectiveSugar)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/times:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (void)times:(void ( ^ ) ( void ))block</Declaration>
+			
+			
+			<Anchor>//api/name/times:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/timesWithIndex:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (void)timesWithIndex:(void ( ^ ) ( int index ))block</Declaration>
+			
+			
+			<Anchor>//api/name/timesWithIndex:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/upto:do:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (void)upto:(int)number do:(void ( ^ ) ( int number ))block</Declaration>
+			
+			
+			<Anchor>//api/name/upto:do:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/downto:do:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (void)downto:(int)number do:(void ( ^ ) ( int number ))block</Declaration>
+			
+			
+			<Anchor>//api/name/downto:do:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/seconds</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)seconds</Declaration>
+			
+			
+			<Anchor>//api/name/seconds</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/minutes</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)minutes</Declaration>
+			
+			
+			<Anchor>//api/name/minutes</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/hours</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)hours</Declaration>
+			
+			
+			<Anchor>//api/name/hours</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/days</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)days</Declaration>
+			
+			
+			<Anchor>//api/name/days</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/weeks</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)weeks</Declaration>
+			
+			
+			<Anchor>//api/name/weeks</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/fortnights</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)fortnights</Declaration>
+			
+			
+			<Anchor>//api/name/fortnights</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/months</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)months</Declaration>
+			
+			
+			<Anchor>//api/name/months</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/years</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)years</Declaration>
+			
+			
+			<Anchor>//api/name/years</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/second</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)second</Declaration>
+			
+			
+			<Anchor>//api/name/second</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/minute</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)minute</Declaration>
+			
+			
+			<Anchor>//api/name/minute</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/hour</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)hour</Declaration>
+			
+			
+			<Anchor>//api/name/hour</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/day</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)day</Declaration>
+			
+			
+			<Anchor>//api/name/day</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/week</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)week</Declaration>
+			
+			
+			<Anchor>//api/name/week</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/fortnight</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)fortnight</Declaration>
+			
+			
+			<Anchor>//api/name/fortnight</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/month</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)month</Declaration>
+			
+			
+			<Anchor>//api/name/month</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/year</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSNumber *)year</Declaration>
+			
+			
+			<Anchor>//api/name/year</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/ago</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSDate *)ago</Declaration>
+			
+			
+			<Anchor>//api/name/ago</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/ago:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSDate *)ago:(NSDate *)time</Declaration>
+			
+			
+			<Anchor>//api/name/ago:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/since:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSDate *)since:(NSDate *)time</Declaration>
+			
+			
+			<Anchor>//api/name/since:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/until:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSDate *)until:(NSDate *)time</Declaration>
+			
+			
+			<Anchor>//api/name/until:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSNumber(ObjectiveSugar)/fromNow</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSNumber+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSDate *)fromNow</Declaration>
+			
+			
+			<Anchor>//api/name/fromNow</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -1,0 +1,491 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CocoaDocs.org - NSSet(Accessors) Category Reference</title>
+    <meta name="author"  content="orta; http://orta.github.com/" /> 
+    <meta name="description" content="Documentation for NSSet(Accessors) Category Reference" /> 
+    
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../appledoc_stylesheet.css" media="all" />
+		<link rel="stylesheet" type="text/css" href="http://cocoadocs.org/assets/appledoc_stylesheet.css" media="all" />
+
+		<link rel="stylesheet" type="text/css" media="print" href="http://cocoadocs.org/assets/appledoc_print.css" />
+    
+		<meta name="generator" content="appledoc 2.1 (build 858)" />
+	</head>
+	<body>
+        
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+        <div id="cocoapods" class="hideInXcode navButton">
+          <h1>
+            <a href ="http://cocoadocs.org">CocoaDocs</a>
+          </h1>
+        </div>
+        
+    		<div class="hideInXcode navButton">
+          
+  				<h1>
+            <a id="libraryTitle" href="../index.html">ObjectiveSugar   </a>
+          </h1>
+          
+        </div>
+      
+  			<div id="libraryVersion" class="hideInXcode navButton">
+          <h1><a id="libraryVersionTitle" href="../index.html"></a></h1>
+    			<ul id="libraryVersionList"></ul>
+        </div>
+        
+  			<div id="developerHome" class="hideInXcode navButton">
+  				<a id="developerHomepageLink" href="../index.html">Marin Usalj</a>
+        </div>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">NSSet(Accessors) Category Reference</h1>
+        
+        <!-- add support for dash / xcode -->
+        <a id="dash_img" alt="Add Docset to Dash" onmouseover="document.getElementById('dash').style.display='block';document.getElementById('xcode').style.display='none';"  href="dash-feed://http%3A%2F%2Fcocoadocs.org%2Fdocsets%2FObjectiveSugar%2FObjectiveSugar.xml"><img src="/assets/img/dash_tiny.png"></a>
+      
+        <a href="#" id="xcode_img" onmouseover="document.getElementById('xcode').style.display='block';document.getElementById('dash').style.display='none';" alt="Add Docset to Xcode"><img src="/assets/img/xcode_tiny.png"></a>
+     
+        <div id="dropdown">
+          <div id="dash" style="display:none;">
+            <p>Click to add to <a href="dash-feed://http%3A%2F%2Fcocoadocs.org%2Fdocsets%2FObjectiveSugar%2FObjectiveSugar.xml">Dash</a></p>
+            <p class="subtext"><a href="http://kapeli.com/dash">What is Dash?</a></p>
+          </div>
+          <div id="xcode" style="display:none;">
+            <p>Copy &amp; Paste into Xcode's Prefs</p>
+            <input readonly id="xcode_input" value="http://cocoadocs.org/docsets/ObjectiveSugar/xcode-docset.atom"></input>
+          </div>
+        </div>
+        
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/first">&nbsp;&nbsp;&nbsp;&nbsp;first</option>
+	
+	<option value="//api/name/last">&nbsp;&nbsp;&nbsp;&nbsp;last</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/each:">&nbsp;&nbsp;&nbsp;&nbsp;- each:</option>
+	
+	<option value="//api/name/eachWithIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- eachWithIndex:</option>
+	
+	<option value="//api/name/map:">&nbsp;&nbsp;&nbsp;&nbsp;- map:</option>
+	
+	<option value="//api/name/reject:">&nbsp;&nbsp;&nbsp;&nbsp;- reject:</option>
+	
+	<option value="//api/name/select:">&nbsp;&nbsp;&nbsp;&nbsp;- select:</option>
+	
+	<option value="//api/name/sort">&nbsp;&nbsp;&nbsp;&nbsp;- sort</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+    
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/first">first</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/last">last</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/each:">each:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/eachWithIndex:">eachWithIndex:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/map:">map:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/reject:">reject:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/select:">select:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sort">sort</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="NSSet(Accessors) Category Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">NSSet(Accessors) Category Reference <span class="hover-only"><a href="https://github.com/search?q=NSSet++extension%3Am&type=Code&ref=searchresults"><img src="http://cocoadocs.org.s3.amazonaws.com/assets/img/blacktocat-32.png"></a></span></h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">NSSet+ObjectiveSugar.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/first">&nbsp;&nbsp;first</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/last">&nbsp;&nbsp;last</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/each:">&ndash;&nbsp;each:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/eachWithIndex:">&ndash;&nbsp;eachWithIndex:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/select:">&ndash;&nbsp;select:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/reject:">&ndash;&nbsp;reject:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/map:">&ndash;&nbsp;map:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sort">&ndash;&nbsp;sort</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/first" title="first"></a>
+	<h3 class="subsubtitle method-title">first <span class="hover-only"><a href="https://github.com/search?q=first++extension%3Am&type=Code&ref=searchresults"><img src="http://cocoadocs.org.s3.amazonaws.com/assets/img/blacktocat-16.png"></a></span></h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (readonly) id first</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/last" title="last"></a>
+	<h3 class="subsubtitle method-title">last <span class="hover-only"><a href="https://github.com/search?q=last++extension%3Am&type=Code&ref=searchresults"><img src="http://cocoadocs.org.s3.amazonaws.com/assets/img/blacktocat-16.png"></a></span></h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (readonly) id last</code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/each:" title="each:"></a>
+	<h3 class="subsubtitle method-title">each: <span class="hover-only"><a href="https://github.com/search?q=each:++extension%3Am&type=Code&ref=searchresults"><img src="http://cocoadocs.org.s3.amazonaws.com/assets/img/blacktocat-16.png"></a></span></h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)each:(void ( ^ ) ( id object ))<em>block</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/eachWithIndex:" title="eachWithIndex:"></a>
+	<h3 class="subsubtitle method-title">eachWithIndex: <span class="hover-only"><a href="https://github.com/search?q=eachWithIndex:++extension%3Am&type=Code&ref=searchresults"><img src="http://cocoadocs.org.s3.amazonaws.com/assets/img/blacktocat-16.png"></a></span></h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)eachWithIndex:(void ( ^ ) ( id object , int index ))<em>block</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/map:" title="map:"></a>
+	<h3 class="subsubtitle method-title">map: <span class="hover-only"><a href="https://github.com/search?q=map:++extension%3Am&type=Code&ref=searchresults"><img src="http://cocoadocs.org.s3.amazonaws.com/assets/img/blacktocat-16.png"></a></span></h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)map:(id ( ^ ) ( id object ))<em>block</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/reject:" title="reject:"></a>
+	<h3 class="subsubtitle method-title">reject: <span class="hover-only"><a href="https://github.com/search?q=reject:++extension%3Am&type=Code&ref=searchresults"><img src="http://cocoadocs.org.s3.amazonaws.com/assets/img/blacktocat-16.png"></a></span></h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)reject:(BOOL ( ^ ) ( id object ))<em>block</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/select:" title="select:"></a>
+	<h3 class="subsubtitle method-title">select: <span class="hover-only"><a href="https://github.com/search?q=select:++extension%3Am&type=Code&ref=searchresults"><img src="http://cocoadocs.org.s3.amazonaws.com/assets/img/blacktocat-16.png"></a></span></h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)select:(BOOL ( ^ ) ( id object ))<em>block</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sort" title="sort"></a>
+	<h3 class="subsubtitle method-title">sort <span class="hover-only"><a href="https://github.com/search?q=sort++extension%3Am&type=Code&ref=searchresults"><img src="http://cocoadocs.org.s3.amazonaws.com/assets/img/blacktocat-16.png"></a></span></h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)sort</code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Marin Usalj. All rights reserved to original authors. (Last updated: 2013-05-29)</span><br />
+						
+            
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 858)</a>. <a href="http://cocoadocs.org">Cocoadocs.org</a> is <a href="http://orta.github.com">Orta Therox</a> &amp; the <a href ="http://cocoapods.org"> Cocoapods team</a>. Hosted by <a href="http://artsy.net">Artsy.net</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+    
+    <script src="/assets/appledoc_setup.js"></script>
+    <script src="../../metadata.json"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-5057919-11', 'cocoadocs.org');
+      ga('send', 'pageview');
+
+    </script>
+	</body>
+</html>

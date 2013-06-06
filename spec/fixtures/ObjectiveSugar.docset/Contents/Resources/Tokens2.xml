@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSDictionary+ObjectiveSugar.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSDictionary(ObjectiveSugar)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDictionary+ObjectiveSugar.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDictionary(ObjectiveSugar)/each:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDictionary+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (void)each:(void ( ^ ) ( id key , id value ))block</Declaration>
+			
+			
+			<Anchor>//api/name/each:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDictionary(ObjectiveSugar)/eachKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDictionary+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (void)eachKey:(void ( ^ ) ( id key ))block</Declaration>
+			
+			
+			<Anchor>//api/name/eachKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDictionary(ObjectiveSugar)/eachValue:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDictionary+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (void)eachValue:(void ( ^ ) ( id value ))block</Declaration>
+			
+			
+			<Anchor>//api/name/eachValue:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDictionary(ObjectiveSugar)/map:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDictionary+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)map:(id ( ^ ) ( id key , id value ))block</Declaration>
+			
+			
+			<Anchor>//api/name/map:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDictionary(ObjectiveSugar)/hasKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDictionary+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)hasKey:(id)key</Declaration>
+			
+			
+			<Anchor>//api/name/hasKey:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

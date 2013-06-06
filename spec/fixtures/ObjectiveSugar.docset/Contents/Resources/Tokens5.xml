@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSSet+Accessors.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSSet(Accessors)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSSet(Accessors)/setFirst:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly) id first</Declaration>
+			
+			
+			<Anchor>//api/name/first</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSSet(Accessors)/first</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly) id first</Declaration>
+			
+			
+			<Anchor>//api/name/first</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfp/NSSet(Accessors)/first</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly) id first</Declaration>
+			
+			
+			<Anchor>//api/name/first</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSSet(Accessors)/setLast:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly) id last</Declaration>
+			
+			
+			<Anchor>//api/name/last</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSSet(Accessors)/last</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly) id last</Declaration>
+			
+			
+			<Anchor>//api/name/last</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfp/NSSet(Accessors)/last</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly) id last</Declaration>
+			
+			
+			<Anchor>//api/name/last</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSSet(Accessors)/each:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (void)each:(void ( ^ ) ( id object ))block</Declaration>
+			
+			
+			<Anchor>//api/name/each:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSSet(Accessors)/eachWithIndex:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (void)eachWithIndex:(void ( ^ ) ( id object , int index ))block</Declaration>
+			
+			
+			<Anchor>//api/name/eachWithIndex:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSSet(Accessors)/select:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)select:(BOOL ( ^ ) ( id object ))block</Declaration>
+			
+			
+			<Anchor>//api/name/select:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSSet(Accessors)/reject:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)reject:(BOOL ( ^ ) ( id object ))block</Declaration>
+			
+			
+			<Anchor>//api/name/reject:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSSet(Accessors)/map:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)map:(id ( ^ ) ( id object ))block</Declaration>
+			
+			
+			<Anchor>//api/name/map:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSSet(Accessors)/sort</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSSet+ObjectiveSugar.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)sort</Declaration>
+			
+			
+			<Anchor>//api/name/sort</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

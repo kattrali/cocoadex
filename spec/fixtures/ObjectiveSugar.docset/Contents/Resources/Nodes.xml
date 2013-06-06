@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocSetNodes version="1.0">
+    <TOC>
+        <Node type="folder">
+            <Name>ObjectiveSugar</Name>
+            <Path>index.html</Path>
+			<Subnodes>
+                
+				
+				
+				<Node type="folder">
+					<Name>Categories</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="1"/>
+						<NodeRef refid="2"/>
+						<NodeRef refid="3"/>
+						<NodeRef refid="4"/>
+						<NodeRef refid="5"/>
+						<NodeRef refid="6"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+			</Subnodes>
+        </Node>
+    </TOC>
+	<Library>
+		
+		
+		<Node id="1">
+			<Name>NSArray(ObjectiveSugar)</Name>
+			<Path>Categories/NSArray+ObjectiveSugar.html</Path>
+		</Node>
+		<Node id="2">
+			<Name>NSDictionary(ObjectiveSugar)</Name>
+			<Path>Categories/NSDictionary+ObjectiveSugar.html</Path>
+		</Node>
+		<Node id="3">
+			<Name>NSMutableArray(ObjectiveSugar)</Name>
+			<Path>Categories/NSMutableArray+ObjectiveSugar.html</Path>
+		</Node>
+		<Node id="4">
+			<Name>NSNumber(ObjectiveSugar)</Name>
+			<Path>Categories/NSNumber+ObjectiveSugar.html</Path>
+		</Node>
+		<Node id="5">
+			<Name>NSSet(Accessors)</Name>
+			<Path>Categories/NSSet+Accessors.html</Path>
+		</Node>
+		<Node id="6">
+			<Name>NSString(ObjectiveSugar)</Name>
+			<Path>Categories/NSString+ObjectiveSugar.html</Path>
+		</Node>
+		
+		
+	</Library>
+</DocSetNodes>
