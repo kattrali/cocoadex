@@ -48,11 +48,11 @@ module Cocoadex
     def self.generate_tags!
       logger.info "Generating tags file..."
 
-      datastore = Tokenizer.tokens.sort_by {|k| k.term }
+      datastore = Tokenizer.tokens.sort_by {|k| k.term || "" }
       text = datastore.map {|k| k.term }.join("\n") + "\n"
 
       # Parse class elements and store tags for scope delimiters
-      datastore.select {|k| k.type == :class }.each_slice(50).to_a.each do |batch|
+      datastore.select {|k| k.type == :class }.each_slice(100) do |batch|
         Tokenizer.untokenize(batch).each do |klass|
           logger.debug("Tagging #{klass.name} properties")
           text << tagify(

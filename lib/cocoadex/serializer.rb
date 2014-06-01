@@ -10,7 +10,10 @@ module Cocoadex
       $/=SEPARATOR
       array = []
       File.open(path, "r").each do |object|
-        array << Marshal::load(object)
+        begin
+          array << Marshal::load(object)
+        rescue Exception => e
+        end
       end
       array
     end
