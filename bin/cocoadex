@@ -2,7 +2,7 @@
 
 require 'methadone'
 require 'nokogiri'
-require 'cocoadex'
+require File.expand_path(File.join(File.dirname(__FILE__), '../lib/cocoadex'))
 
 include Methadone::Main
 include Methadone::CLILogging
