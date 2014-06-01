@@ -32,11 +32,10 @@ module Cocoadex
       plist = File.join(docset_path,"Contents", "Info.plist")
       if File.exist? plist
         docset = DocSet.new(plist)
-        logger.info "Parsing docset tokens in #{docset.name}. This may take a moment..."
-
-        files = Dir.glob(docset_path+"/**/*.html").select {|f| not ignored?(f) }
+        files  = Dir.glob(docset_path+"/**/*.html").select {|f| not ignored?(f) }
 
         if files.size > 0
+          logger.info "Parsing documentation tokens in #{docset.name}. This may take a moment..."
           pbar  = ProgressBar.create(:title => "#{docset.platform} #{docset.version}",:total => files.size)
           files.each_with_index do |f,i|
             index_html(docset, f, i, tokenizer)
