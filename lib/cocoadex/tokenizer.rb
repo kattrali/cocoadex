@@ -92,29 +92,37 @@ module Cocoadex
         when :data_type,   :result_code, :function,
              :const_group, :constant, :callback
 
-          if class_key = tokens.detect {|k| k.id == key.fk}
-            ref = Cocoadex::GenericRef.new(class_key.url)
-            list = case key.type
-              when :result_code then ref.result_codes
-              when :data_type   then ref.data_types
-              when :const_group then ref.const_groups
-              when :constant    then ref.constants
-              when :function    then ref.functions
-              when :callback    then ref.callbacks
-            end
-            list.detect {|m| m.name == key.term}
-          end
+          untokenize_ref_part(key)
         when :method, :property
-          if class_key = tokens.detect {|k| k.id == key.fk}
-            klass = Cocoadex::Class.new(class_key.url)
-            list = key.type == :method ? klass.methods : klass.properties
-            list.detect {|m| m.name == key.term}
-          end
+          untokenize_property(key)
         end
       end
     end
 
     private
+
+    def self.untokenize_ref_part key
+      if class_key = tokens.detect {|k| k.id == key.fk}
+        ref = Cocoadex::GenericRef.new(class_key.url)
+        list = case key.type
+          when :result_code then ref.result_codes
+          when :data_type   then ref.data_types
+          when :const_group then ref.const_groups
+          when :constant    then ref.constants
+          when :function    then ref.functions
+          when :callback    then ref.callbacks
+        end
+        list.detect {|m| m.name == key.term}
+      end
+    end
+
+    def self.untokenize_property key
+      if class_key = tokens.detect {|k| k.id == key.fk}
+        klass = Cocoadex::Class.new(class_key.url)
+        list = key.type == :method ? klass.methods : klass.properties
+        list.detect {|m| m.name == key.term}
+      end
+    end
 
     # Convert all elements into keyword tokens
     def self.tokenize docset, entity, type, id, properties

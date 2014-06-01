@@ -28,11 +28,6 @@ module Cocoadex
         rejected_paths = rejected_prefixes.map {|p| reject_paths(paths, p)}.flatten
         paths.reject! {|p| rejected_paths.include?(p) }
 
-
-        require 'pry'
-        binding.pry
-
-
         paths
       end
     end
