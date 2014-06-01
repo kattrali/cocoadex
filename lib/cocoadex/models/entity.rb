@@ -6,15 +6,9 @@ module Cocoadex
 
     def initialize path
       @path    = path
-      text     = clean(IO.read(path, :mode => 'rb'))
+      text     = IO.read(path, :mode => 'rb').clean_markup
       document = Nokogiri::HTML(text)
       parse(document)
-    end
-
-    # Remove leading and trailing whitespace from lines, while
-    # stripping HTML tags
-    def clean text
-      text.gsub(/(\n|\t|\r)/, ' ').gsub(/>\s*</, '><').squeeze(' ')
     end
 
     def strip text

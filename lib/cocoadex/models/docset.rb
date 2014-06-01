@@ -4,7 +4,7 @@ module Cocoadex
     attr_reader :platform, :version, :name, :description, :path
 
     def initialize plist_path
-      doc = Nokogiri::HTML(IO.read(plist_path))
+      doc = Nokogiri::HTML(IO.read(plist_path).clean_markup)
       @path = plist_path
       @name = plist_value doc, 'CFBundleName'
       @platform = plist_value doc, "DocSetPlatformFamily"
