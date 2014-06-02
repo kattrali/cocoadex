@@ -54,6 +54,8 @@ module Cocoadex
       # Parse class elements and store tags for scope delimiters
       datastore.select {|k| k.type == :class }.each_slice(100) do |batch|
         Tokenizer.untokenize(batch).each do |klass|
+          next unless klass.name
+
           logger.debug("Tagging #{klass.name} properties")
           text << tagify(
             klass.name,

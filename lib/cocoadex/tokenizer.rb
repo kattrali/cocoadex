@@ -126,6 +126,8 @@ module Cocoadex
 
     # Convert all elements into keyword tokens
     def self.tokenize docset, entity, type, id, properties
+      return unless entity.name and entity.name.length > 0
+
       key = Keyword.new(entity.name, type, docset, entity.path)
       key.id = id
       tokens << key
