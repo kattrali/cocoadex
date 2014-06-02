@@ -35,16 +35,16 @@ module Cocoadex
         files  = Dir.glob(docset_path+"/**/*.html").select {|f| not ignored?(f) }
 
         if files.size > 0
-          logger.info "Parsing documentation tokens in #{docset.name}. This may take a moment..."
+          logger.info "Parsing documentation for #{docset.name}. This may take a moment..."
           pbar  = ProgressBar.create(:title => "#{docset.platform} #{docset.version}",:total => files.size)
           files.each_with_index do |f,i|
             index_html(docset, f, i, tokenizer)
             pbar.increment
           end
           pbar.finish
-          logger.info "  Tokens Indexed."
+          logger.debug "  Tokens Indexed."
         else
-          logger.info "  No files to parse."
+          logger.debug "  No files to parse."
         end
 
         docset
@@ -66,7 +66,7 @@ module Cocoadex
         when GenericReference
           logger.debug "  Parsing GENERIC"
           tokenizer.tokenize_ref(docset.name, path, index)
-        when DeprecatedMethods
+        # when DeprecatedMethods
           # TODO
         else
           # TODO
